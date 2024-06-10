@@ -278,7 +278,7 @@ const NewMarker = ({ worldId , mapId, handleListChange, type, map, displayMarker
             placePopulation: population,            
         };
         try {
-          const response = await axios.post('http://localhost:3001/marker/createandplace', formData);          
+          const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/marker/createandplace', formData);          
           const markerData = response.data.markerData;          
           if (!markerData.created) {
             document.getElementById('formError').innerHTML = markerData.error;
@@ -308,7 +308,7 @@ const NewMarker = ({ worldId , mapId, handleListChange, type, map, displayMarker
             return;
         }
         try {
-          const response = await axios.post('http://localhost:3001/markerInMap/', formData);          
+          const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/markerInMap/', formData);          
           const markerData = response.data.created;
           if (!markerData) {
             document.getElementById('formError').innerHTML = 'El marcador no se pudo colocar';
@@ -324,7 +324,7 @@ const NewMarker = ({ worldId , mapId, handleListChange, type, map, displayMarker
     useEffect(() => {
         const getMarkers = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/marker/fromWorldId/${worldId}`);
+                const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/marker/fromWorldId/${worldId}`);
                 setMarkers(response.data.markers);
             } catch (error) {
                 console.error('Request error: ', error);
@@ -334,7 +334,7 @@ const NewMarker = ({ worldId , mapId, handleListChange, type, map, displayMarker
 
         const getFactions = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/faction/fromWorldId/${worldId}`);
+                const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/faction/fromWorldId/${worldId}`);
                 setFactions(response.data.factions);
             } catch (error) {
                 console.error('Request error: ', error);
@@ -344,7 +344,7 @@ const NewMarker = ({ worldId , mapId, handleListChange, type, map, displayMarker
 
         const getKins = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/kin/fromWorldId/${worldId}`);
+                const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/kin/fromWorldId/${worldId}`);
                 setKins(response.data.kins);
             } catch (error) {
                 console.error('Request error: ', error);

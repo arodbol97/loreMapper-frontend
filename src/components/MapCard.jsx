@@ -117,7 +117,7 @@ const MapCard = ({map, user, worldId, getMaps, maps}) => {
 
   const checkUser = async () => {    
     try {
-      const response = await axios.get(`http://localhost:3001/world/fromWorldId/${worldId}`);
+      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/world/fromWorldId/${worldId}`);
       if(!worldOwner){
         setWorldOwner(response.data.world.worldOwner);
       }      
@@ -130,7 +130,7 @@ const MapCard = ({map, user, worldId, getMaps, maps}) => {
     event.preventDefault();
         
     try {
-      const response = await axios.post('http://localhost:3001/map/update', formData);
+      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/map/update', formData);
       const requestData = response.data.mapData;
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;
@@ -157,7 +157,7 @@ const MapCard = ({map, user, worldId, getMaps, maps}) => {
     formDataForSubmission.append('mapImage', file);
     
     try {
-      const response = await axios.post('http://localhost:3001/map/changeImage', formDataForSubmission);
+      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/map/changeImage', formDataForSubmission);
       const requestData = response.data.mapData;
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;
@@ -175,7 +175,7 @@ const MapCard = ({map, user, worldId, getMaps, maps}) => {
   const deleteMap = async () => {    
     if (window.confirm('¿Seguro que desea eliminar este mapa permanentemente?')) {
       try {
-        const response = await axios.get(`http://localhost:3001/map/delete/${map.mapId}`);
+        const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/map/delete/${map.mapId}`);
         if(response.data.deleted){
           getMaps();
         } else {
@@ -204,7 +204,7 @@ const MapCard = ({map, user, worldId, getMaps, maps}) => {
         {editing ? (
           <label
             alt={"thumbnailFor" + map.mapName}
-            style={{...thumbnailStyles, backgroundImage: `url(http://localhost:3001/images/${map.mapImage})`,cursor:'pointer'}}
+            style={{...thumbnailStyles, backgroundImage: `url(https://loremapper-backend-b042c39916b5.herokuapp.com/images/${map.mapImage})`,cursor:'pointer'}}
             onClick={(e)=>{
               e.stopPropagation();              
             }}>
@@ -223,7 +223,7 @@ const MapCard = ({map, user, worldId, getMaps, maps}) => {
         ):(
           <div
             alt={"thumbnailFor" + map.mapName}
-            style={{...thumbnailStyles, backgroundImage: `url(http://localhost:3001/images/${map.mapImage})`}}>
+            style={{...thumbnailStyles, backgroundImage: `url(https://loremapper-backend-b042c39916b5.herokuapp.com/images/${map.mapImage})`}}>
           </div>
         )}
         

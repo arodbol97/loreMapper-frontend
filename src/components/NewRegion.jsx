@@ -83,7 +83,7 @@ const NewRegion = ({ worldId, displayMarkers, setShowNewForm, getRegions }) => {
         };
         console.log(formData);
         try {
-            const response = await axios.post('http://localhost:3001/region/create', formData);
+            const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/region/create', formData);
             const regionData = response.data.regionData;
             if (!regionData.created) {
                 document.getElementById('formError').innerHTML = regionData.error;

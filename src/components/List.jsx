@@ -79,7 +79,7 @@ const List = ({ worldId , mapId, user, handleComponentChange, displayMarkers, hi
 
   const getMarkers = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/marker/fromMapId/${mapId}`);
+      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/marker/fromMapId/${mapId}`);
 
       const updatedMarkers = response.data.markers.map(marker => ({
         ...marker,

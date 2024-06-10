@@ -129,7 +129,7 @@ const Register = ({handleComponentChange , setUser}) => {
       return;
     }else{
       try {      
-        const response = await axios.post(`http://localhost:3001/user/register`,formData);
+        const response = await axios.post(`https://loremapper-backend-b042c39916b5.herokuapp.com/user/register`,formData);
         console.log("afteraxios");
         const registerData = response.data.registerData;
         console.log(registerData.registered);

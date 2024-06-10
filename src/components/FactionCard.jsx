@@ -157,7 +157,7 @@ const FactionCard = ({faction, user, displayMarkers, hideMarker, worldId, mapId,
   const checkUser = ()=> {
     const getWorld = async ()=>{
       try {
-        const response = await axios.get(`http://localhost:3001/world/fromWorldId/${worldId}`);
+        const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/world/fromWorldId/${worldId}`);
         if(worldOwner === -1){
           setWorldOwner(response.data.world.worldOwner);
         }      
@@ -242,7 +242,7 @@ const FactionCard = ({faction, user, displayMarkers, hideMarker, worldId, mapId,
       markerFaction: faction.factionId
     }  
     try {
-      const response = await axios.post('http://localhost:3001/marker/changefaction', formData);
+      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/marker/changefaction', formData);
       if (response.data.requestData.updated) {     
         displayMarkers();   
       }
@@ -261,7 +261,7 @@ const FactionCard = ({faction, user, displayMarkers, hideMarker, worldId, mapId,
     event.preventDefault();
         
     try {
-      const response = await axios.post('http://localhost:3001/faction/update', formData);          
+      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/faction/update', formData);          
       const requestData = response.data.requestData;          
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;
@@ -279,7 +279,7 @@ const FactionCard = ({faction, user, displayMarkers, hideMarker, worldId, mapId,
 
   const getMarkers = async () => {
     try {
-        const response = await axios.get(`http://localhost:3001/marker/fromMapId/${mapId}`);
+        const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/marker/fromMapId/${mapId}`);
         setMarkers(response.data.markers);
     } catch (error) {
         console.error('Request error: ', error);

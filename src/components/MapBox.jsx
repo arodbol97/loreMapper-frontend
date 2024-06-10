@@ -27,7 +27,7 @@ const MapBox = ({ mapId , handleComponentChange, user , worldId, mapData}) => {
 
   const fetchMapData = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/map/fromId/${mapId}`);
+      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/map/fromId/${mapId}`);
       return response.data.map;
     } catch (error) {
       console.error('Error fetching background image:', error);
@@ -37,7 +37,7 @@ const MapBox = ({ mapId , handleComponentChange, user , worldId, mapData}) => {
 
   const displayMarkers = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/marker/fromMapId/${mapId}`);
+      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/marker/fromMapId/${mapId}`);
       setMarkers(
         response.data.markers
           .filter(marker => !hiddenMarkers.includes(marker.markerPosition))
@@ -74,7 +74,7 @@ const MapBox = ({ mapId , handleComponentChange, user , worldId, mapData}) => {
     const img = new Image();
     let imageWidth = null;
     let imageHeight = null;
-    img.src = 'http://localhost:3001/images/' + mapData.mapImage;
+    img.src = 'https://loremapper-backend-b042c39916b5.herokuapp.com/images/' + mapData.mapImage;
 
     img.onload = () => {
       const newWidth = 100;
@@ -90,7 +90,7 @@ const MapBox = ({ mapId , handleComponentChange, user , worldId, mapData}) => {
           sources: {
             backgroundImg: {
               type: 'image',
-              url: 'http://localhost:3001/images/' + mapData.mapImage,
+              url: 'https://loremapper-backend-b042c39916b5.herokuapp.com/images/' + mapData.mapImage,
               coordinates: [
                 [-imageWidth / 2, imageHeight / 2],
                 [imageWidth / 2, imageHeight / 2],

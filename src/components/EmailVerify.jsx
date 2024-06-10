@@ -114,7 +114,7 @@ const EmailVerify = ({ handleComponentChange , encryptedEmail = null }) => {
 
   const decrypt = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/user/verify', {encryptedEmail: encryptedEmail});
+      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/user/verify', {encryptedEmail: encryptedEmail});
       if(response.data.email){
         setVerified(true);        
         document.getElementById("formError").innerHTML = '';
@@ -133,7 +133,7 @@ const EmailVerify = ({ handleComponentChange , encryptedEmail = null }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3001/user/verifyStart', formData);
+      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/user/verifyStart', formData);
       if(response.data.success){
         document.getElementById("formError").innerHTML = '';                        
       } else {

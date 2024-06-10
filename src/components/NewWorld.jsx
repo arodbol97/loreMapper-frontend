@@ -145,7 +145,7 @@ const NewWorld = ({user, getWorlds, setNewWorld}) => {
     formDataForSubmission.append('worldOwner', user && user.userId);
 
     try {
-      const response = await axios.post('http://localhost:3001/world/create', formDataForSubmission);      
+      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/world/create', formDataForSubmission);      
       const worldData = response.data.worldData;      
       if (!worldData.created) {
         document.getElementById('formError').innerHTML = worldData.error;        

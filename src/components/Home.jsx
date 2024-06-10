@@ -180,7 +180,7 @@ const Home = ({handleComponentChange, user}) => {
 
   const getWorlds = async () => {
     try {          
-      const response = await axios.get(`http://localhost:3001/world/`);
+      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/world/`);
       setWorlds(response.data.worlds);          
     } catch (error) {
       console.error('Request error: ', error);

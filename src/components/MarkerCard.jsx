@@ -145,7 +145,7 @@ const MarkerCard = ({marker, user, map, rerenderer, displayMarkers, hideMarker ,
         markerId: marker.markerId,
         markerPosition: marker.markerPosition
       };
-      const response = await axios.post('http://localhost:3001/markerInMap/delete', data);
+      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/markerInMap/delete', data);
       if(response.data.success){
         displayMarkers();
         rerenderer();
@@ -172,13 +172,13 @@ const MarkerCard = ({marker, user, map, rerenderer, displayMarkers, hideMarker ,
     event.preventDefault();
         
     try {
-      const response = await axios.post('http://localhost:3001/marker/update', formData);
+      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/marker/update', formData);
       const requestData = response.data.requestData;
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;
       } else {
         if (formData.markerPosition !== marker.markerPosition) {
-          const response = await axios.post('http://localhost:3001/markerinMap/update', formData);
+          const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/markerinMap/update', formData);
           const requestData = response.data.requestData;
           if (!requestData.updated) {
             document.getElementById('formError').innerHTML = requestData.error;
@@ -204,7 +204,7 @@ const MarkerCard = ({marker, user, map, rerenderer, displayMarkers, hideMarker ,
   const checkUser = ()=> {
     const getWorld = async ()=>{
       try {
-        const response = await axios.get(`http://localhost:3001/world/fromWorldId/${worldId}`);
+        const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/world/fromWorldId/${worldId}`);
         if(worldOwner === -1){
           setWorldOwner(response.data.world.worldOwner);
         }      
@@ -230,7 +230,7 @@ const MarkerCard = ({marker, user, map, rerenderer, displayMarkers, hideMarker ,
   useEffect(()=>{
     const getMarkers = async () => {
       try {
-          const response = await axios.get(`http://localhost:3001/marker/fromWorldId/${worldId}`);
+          const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/marker/fromWorldId/${worldId}`);
           setWorldMarkers(response.data.markers);
       } catch (error) {
           console.error('Request error: ', error);
@@ -240,7 +240,7 @@ const MarkerCard = ({marker, user, map, rerenderer, displayMarkers, hideMarker ,
 
     const getFactions = async () => {
       try {
-          const response = await axios.get(`http://localhost:3001/faction/fromWorldId/${worldId}`);
+          const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/faction/fromWorldId/${worldId}`);
           setFactions(response.data.factions);          
       } catch (error) {
           console.error('Request error: ', error);
@@ -250,7 +250,7 @@ const MarkerCard = ({marker, user, map, rerenderer, displayMarkers, hideMarker ,
 
     const getKins = async () => {
       try {
-          const response = await axios.get(`http://localhost:3001/kin/fromWorldId/${worldId}`);
+          const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/kin/fromWorldId/${worldId}`);
           setKins(response.data.kins);
       } catch (error) {
           console.error('Request error: ', error);

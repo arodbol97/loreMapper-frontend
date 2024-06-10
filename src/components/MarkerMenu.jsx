@@ -103,7 +103,7 @@ const MarkerMenu = ({worldId , mapId, map, mapData, user, handleComponentChange,
   const checkUser = () => {
     const getOwner = async (worldOwnerId) => {
       try {
-        const response = await axios.get(`http://localhost:3001/user/fromId/${worldOwnerId}`);
+        const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/user/fromId/${worldOwnerId}`);
         setWorldOwner(response.data.user);
       } catch (error) {
         console.error('Request error: ', error);
@@ -112,7 +112,7 @@ const MarkerMenu = ({worldId , mapId, map, mapData, user, handleComponentChange,
 
     const getWorld = async ()=>{
       try {
-        const response = await axios.get(`http://localhost:3001/world/fromWorldId/${worldId}`);
+        const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/world/fromWorldId/${worldId}`);
         if(!worldOwner){
           setWorld(response.data.world);
           getOwner(response.data.world.worldOwner);
@@ -150,7 +150,7 @@ const MarkerMenu = ({worldId , mapId, map, mapData, user, handleComponentChange,
 
   const getParent = async ()=>{
     try {
-      const response = await axios.get(`http://localhost:3001/map/fromId/${mapData.mapParent}`);
+      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/map/fromId/${mapData.mapParent}`);
       setParent(response.data.map);                  
     } catch (error) {
       console.error('Request error: ', error);

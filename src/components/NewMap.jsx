@@ -113,7 +113,7 @@ const NewMap = ({worldId , user , getMaps , worldName, setNewMap, maps}) => {
   useEffect(() => {
     const fetchParentMaps = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/map/fromWorld/${worldId}`);
+        const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/map/fromWorld/${worldId}`);
         const maps = response.data.maps;
         let mapNames = [];
         maps.forEach(map => {
@@ -160,7 +160,7 @@ const NewMap = ({worldId , user , getMaps , worldName, setNewMap, maps}) => {
     formDataForSubmission.append('mapWorld', worldId);
 
     try {
-      const response = await axios.post('http://localhost:3001/map/create', formDataForSubmission);      
+      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/map/create', formDataForSubmission);      
       const mapData = response.data.mapData;
       console.log(mapData.created);
       if (!mapData.created) {

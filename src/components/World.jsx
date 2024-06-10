@@ -221,7 +221,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
 
   const getWorld = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/world/fromWorldId/${worldId}`);
+      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/world/fromWorldId/${worldId}`);
       setWorld(response.data.world);
       setFormData(response.data.world);
       getOwner(response.data.world.worldOwner);      
@@ -232,7 +232,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
 
   const getMarkers = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/marker/fromWorldId/${worldId}`);
+      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/marker/fromWorldId/${worldId}`);
       setMarkers(response.data.markers);
     } catch (error) {
       console.error('Request error: ', error);
@@ -241,7 +241,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
 
   const getFactions = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/faction/fromWorldId/${worldId}`);
+      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/faction/fromWorldId/${worldId}`);
       setFactions(response.data.factions);
     } catch (error) {
       console.error('Request error: ', error);
@@ -250,7 +250,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
 
   const getKins = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/kin/fromWorldId/${worldId}`);
+      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/kin/fromWorldId/${worldId}`);
       setKins(response.data.kins);
     } catch (error) {
       console.error('Request error: ', error);
@@ -259,7 +259,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
 
   const getLoreBits = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/loreBit/fromWorldId/${worldId}`);
+      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/loreBit/fromWorldId/${worldId}`);
       setLoreBits(response.data.loreBits);
     } catch (error) {
       console.error('Request error: ', error);
@@ -268,7 +268,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
 
   const getMaps = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/map/fromWorld/${worldId}`);
+      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/map/fromWorld/${worldId}`);
       setMaps(response.data.maps);
     } catch (error) {
       console.error('Request error: ', error);
@@ -277,7 +277,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
 
   const getOwner = async (worldOwner) => {
     try {
-      const response = await axios.get(`http://localhost:3001/user/fromId/${worldOwner}`);
+      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/user/fromId/${worldOwner}`);
       setOwner(response.data.user);
     } catch (error) {
       console.error('Request error: ', error);
@@ -324,7 +324,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
     event.preventDefault();
         
     try {
-      const response = await axios.post('http://localhost:3001/world/update', formData);
+      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/world/update', formData);
       const requestData = response.data.worldData;
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;
@@ -351,7 +351,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
     formDataForSubmission.append('worldThumbnail', file);
     
     try {
-      const response = await axios.post('http://localhost:3001/world/changeImage', formDataForSubmission);
+      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/world/changeImage', formDataForSubmission);
       const requestData = response.data.worldData;
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;
@@ -384,7 +384,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
             <div
               style={{
                 ...thumbnailStyles,
-                backgroundImage: `url(http://localhost:3001/images/${world.worldThumbnail})`
+                backgroundImage: `url(https://loremapper-backend-b042c39916b5.herokuapp.com/images/${world.worldThumbnail})`
               }}
             >              
             </div>
@@ -411,7 +411,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
             <label
               style={{
                 ...thumbnailStyles,
-                backgroundImage: world && `url(http://localhost:3001/images/${world.worldThumbnail})`
+                backgroundImage: world && `url(https://loremapper-backend-b042c39916b5.herokuapp.com/images/${world.worldThumbnail})`
               }}
             >
               <div style={overlayStyles}>

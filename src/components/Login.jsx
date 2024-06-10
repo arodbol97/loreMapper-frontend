@@ -125,7 +125,7 @@ const Login = ({ setUser , handleComponentChange , registered = false }) => {
     document.getElementById("formError").innerHTML = "";
 
     try {      
-      const response = await axios.post(`http://localhost:3001/user/login`, formData);
+      const response = await axios.post(`https://loremapper-backend-b042c39916b5.herokuapp.com/user/login`, formData);
       const loginData = response.data.loginData;
       const userData = response.data.userData;     
       
