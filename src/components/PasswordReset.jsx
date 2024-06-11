@@ -154,7 +154,7 @@ const PasswordReset = ({ handleComponentChange , encryptedEmail = null }) => {
 
         if(response.data.success){
           document.getElementById("formError").innerHTML = '';    
-          window.location.href = "http://localhost:3000/";
+          window.location.href = "https://main.d1egoez5esnf01.amplifyapp.com/";
         } else {
           document.getElementById("formError").innerHTML = 'No se pudo cambiar la contraseña';          
         }

@@ -243,7 +243,7 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
       } else {
         setUserData(formData);
         Cookies.set('userData', JSON.stringify(formData));
-        window.location.href = "http://localhost:3000/";  
+        window.location.href = "https://main.d1egoez5esnf01.amplifyapp.com/";  
         setNewName(false);        
       }
     } catch (error) {
@@ -263,7 +263,7 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
       } else {
         await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/user/verifyStart', {usernameOrEmail: formData.userEmail});
         Cookies.set('userData', null);
-        window.location.href = "http://localhost:3000/";  
+        window.location.href = "https://main.d1egoez5esnf01.amplifyapp.com/";  
       }
     } catch (error) {
       console.error('Update error: ', error);
@@ -320,7 +320,7 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
         document.getElementById('formError').innerHTML = requestData.error;
       } else {
         Cookies.set('userData', null);
-        window.location.href = "http://localhost:3000/";  
+        window.location.href = "https://main.d1egoez5esnf01.amplifyapp.com/";  
       }
     } catch (error) {
       console.error('Update error: ', error);
@@ -351,7 +351,7 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
         document.getElementById('buttonError').innerHTML = requestData.error;
       } else {
         Cookies.set('userData', null);
-        window.location.href = "http://localhost:3000/";
+        window.location.href = "https://main.d1egoez5esnf01.amplifyapp.com/";
       }
     } catch (error) {
       console.error('Delete error: ', error);
@@ -415,7 +415,7 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
               <button style={{...buttonStyles,width:'50%',height:'45px',justifyContent:'center',margin:'5px',fontWeight:'bold',backgroundColor:'#DC143C'}} onClick={()=>{if(window.confirm('¿Seguro que quieres eliminar este usuario permanentemente?')){deleteUser()}}}>
                 <BsTrashFill size={20} style={{marginRight:'5px',marginTop:'-3px'}}/> Borrar usuario
               </button>
-              <button style={{...buttonStyles,width:'50%',height:'45px',justifyContent:'center',margin:'5px',fontWeight:'bold',backgroundColor:'#DC143C'}} onClick={()=>{if(window.confirm('¿Seguro que quieres cerrar sesión?')){Cookies.set('userData', null);window.location.href = "http://localhost:3000/";}}}>
+              <button style={{...buttonStyles,width:'50%',height:'45px',justifyContent:'center',margin:'5px',fontWeight:'bold',backgroundColor:'#DC143C'}} onClick={()=>{if(window.confirm('¿Seguro que quieres cerrar sesión?')){Cookies.set('userData', null);window.location.href = "https://main.d1egoez5esnf01.amplifyapp.com/";}}}>
                 <BsPersonFillSlash size={20} style={{marginRight:'5px',marginTop:'-3px'}}/> Cerrar sesión
               </button>                
               </div>              

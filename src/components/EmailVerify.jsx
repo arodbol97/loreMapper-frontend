@@ -147,7 +147,7 @@ const EmailVerify = ({ handleComponentChange , encryptedEmail = null }) => {
   const handleSubmit2 = async (e) => {
     e.preventDefault();
 
-    window.location.href = 'http://localhost:3000/';
+    window.location.href = 'https://main.d1egoez5esnf01.amplifyapp.com/';
   };
 
   useEffect(()=>{
