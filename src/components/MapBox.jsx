@@ -90,7 +90,7 @@ const MapBox = ({ mapId , handleComponentChange, user , worldId, mapData}) => {
           sources: {
             backgroundImg: {
               type: 'image',
-              url: mapData.mapImage,
+              url: '' + mapData.mapImage,
               coordinates: [
                 [-imageWidth / 2, imageHeight / 2],
                 [imageWidth / 2, imageHeight / 2],
