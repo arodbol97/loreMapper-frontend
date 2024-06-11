@@ -208,6 +208,7 @@ const WorldCard = ({world, user, getWorlds}) => {
 
     const formDataForSubmission = new FormData();
     formDataForSubmission.append('worldId', formData.worldId);    
+    formDataForSubmission.append('worldId', formData.worldName);    
     formDataForSubmission.append('worldThumbnail', file);
     
     try {
@@ -272,7 +273,7 @@ const WorldCard = ({world, user, getWorlds}) => {
         {editing ? (
           <label
             alt={"thumbnailFor" + world.worldName}
-            style={{...thumbnailStyles, backgroundImage: `url(https://loremapper-backend-b042c39916b5.herokuapp.com/images/${world.worldThumbnail})`,cursor:'pointer'}}
+            style={{...thumbnailStyles, backgroundImage: `url(${world.worldThumbnail})`,cursor:'pointer'}}
             onClick={(e)=>{
               e.stopPropagation();              
             }}>
@@ -291,7 +292,7 @@ const WorldCard = ({world, user, getWorlds}) => {
         ):(
           <div
             alt={"thumbnailFor" + world.worldName}
-            style={{...thumbnailStyles, backgroundImage: `url(https://loremapper-backend-b042c39916b5.herokuapp.com/images/${world.worldThumbnail})`}}>
+            style={{...thumbnailStyles, backgroundImage: `url(${world.worldThumbnail})`}}>
           </div>
         )}
         

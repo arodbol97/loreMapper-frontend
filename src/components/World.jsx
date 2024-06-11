@@ -384,7 +384,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
             <div
               style={{
                 ...thumbnailStyles,
-                backgroundImage: `url(https://loremapper-backend-b042c39916b5.herokuapp.com/images/${world.worldThumbnail})`
+                backgroundImage: `url(${world.worldThumbnail})`
               }}
             >              
             </div>
@@ -412,7 +412,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
               <label
                 style={{
                   ...thumbnailStyles,
-                  backgroundImage: world && `url(https://loremapper-backend-b042c39916b5.herokuapp.com/images/${world.worldThumbnail})`
+                  backgroundImage: world && `url(${world.worldThumbnail})`
                 }}
               >
                 <div style={overlayStyles}>

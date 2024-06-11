@@ -153,7 +153,8 @@ const MapCard = ({map, user, worldId, getMaps, maps}) => {
     });
 
     const formDataForSubmission = new FormData();
-    formDataForSubmission.append('mapId', formData.mapId);    
+    formDataForSubmission.append('mapId', formData.mapId);   
+    formDataForSubmission.append('mapId', formData.mapName);    
     formDataForSubmission.append('mapImage', file);
     
     try {
@@ -204,7 +205,7 @@ const MapCard = ({map, user, worldId, getMaps, maps}) => {
         {editing ? (
           <label
             alt={"thumbnailFor" + map.mapName}
-            style={{...thumbnailStyles, backgroundImage: `url(https://loremapper-backend-b042c39916b5.herokuapp.com/images/${map.mapImage})`,cursor:'pointer'}}
+            style={{...thumbnailStyles, backgroundImage: `url(${map.mapImage})`,cursor:'pointer'}}
             onClick={(e)=>{
               e.stopPropagation();              
             }}>
@@ -223,7 +224,7 @@ const MapCard = ({map, user, worldId, getMaps, maps}) => {
         ):(
           <div
             alt={"thumbnailFor" + map.mapName}
-            style={{...thumbnailStyles, backgroundImage: `url(https://loremapper-backend-b042c39916b5.herokuapp.com/images/${map.mapImage})`}}>
+            style={{...thumbnailStyles, backgroundImage: `url(${map.mapImage})`}}>
           </div>
         )}
         
