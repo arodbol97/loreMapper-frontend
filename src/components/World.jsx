@@ -407,62 +407,66 @@ const World = ({ worldId, handleComponentChange, user }) => {
         </div>
       ):(
         <form style={infoStyles} onSubmit={handleSubmit}>
-          <div style={columnStyles}>
-            <label
-              style={{
-                ...thumbnailStyles,
-                backgroundImage: world && `url(https://loremapper-backend-b042c39916b5.herokuapp.com/images/${world.worldThumbnail})`
-              }}
-            >
-              <div style={overlayStyles}>
-                <BsPencilFill size={100}/>
-                <input
-                  style={{display:'none'}}
-                  type="file"
-                  accept="image/*"
-                  name="worldThumbnail"
-                  onChange={changeImage}                  
-                />
-              </div>  
-            </label>
-            <div style={infoItemStyles}>
-              <div style={{alignItems:'center',display:'flex'}}><FaMapMarkerAlt size={20} style={{margin:'0 5px'}}/> {markers ? markers.length : 0}</div>
-              <div style={{alignItems:'center',display:'flex'}}><BiSolidShieldAlt2 size={20} style={{margin:'0 5px'}}/> {factions ? factions.length : 0}</div>
-              <div style={{alignItems:'center',display:'flex'}}><GiDna1 size={20} style={{margin:'0 5px'}}/> {kins ? kins.length : 0}</div>
-            </div>
-            {owner && <div style={infoItemStyles}>Usuario: {owner.userName}</div>}
-            <div style={infoItemStyles}>Nombre:
-              <input 
-                type='text'
-                value={formData && formData.worldName}
-                onChange={e => handleInputChange('worldName', e.target.value)}
-                style={{marginLeft:'auto', width:'68%'}}>
+          {world && 
+            <div style={columnStyles}>
+              <label
+                style={{
+                  ...thumbnailStyles,
+                  backgroundImage: world && `url(https://loremapper-backend-b042c39916b5.herokuapp.com/images/${world.worldThumbnail})`
+                }}
+              >
+                <div style={overlayStyles}>
+                  <BsPencilFill size={100}/>
+                  <input
+                    style={{display:'none'}}
+                    type="file"
+                    accept="image/*"
+                    name="worldThumbnail"
+                    onChange={changeImage}                  
+                  />
+                </div>  
+              </label>
+              <div style={infoItemStyles}>
+                <div style={{alignItems:'center',display:'flex'}}><FaMapMarkerAlt size={20} style={{margin:'0 5px'}}/> {markers ? markers.length : 0}</div>
+                <div style={{alignItems:'center',display:'flex'}}><BiSolidShieldAlt2 size={20} style={{margin:'0 5px'}}/> {factions ? factions.length : 0}</div>
+                <div style={{alignItems:'center',display:'flex'}}><GiDna1 size={20} style={{margin:'0 5px'}}/> {kins ? kins.length : 0}</div>
+              </div>
+              {owner && <div style={infoItemStyles}>Usuario: {owner.userName}</div>}
+              <div style={infoItemStyles}>Nombre:
+                <input 
+                  type='text'
+                  value={formData && formData.worldName}
+                  onChange={e => handleInputChange('worldName', e.target.value)}
+                  style={{marginLeft:'auto', width:'68%'}}>
 
-              </input>
-            </div> 
-            <div style={infoItemStyles}>Visibilidad: 
-              <select
-                value={formData && formData.worldVisibility}
-                onChange={e => handleInputChange('worldVisibility', e.target.value)}
-                style={{marginLeft:'auto', width:'70%'}}>
-                  <option value={'public'}>Público</option>
-                  <option value={'private'}>Privado</option>
-              </select>
-            </div>            
-          </div>
-          <div style={{...columnStyles, width:'69%', borderLeft: '2px solid #282c34', paddingLeft:'20px'}}>
-            <textarea
-              style={{...infoItemStyles,resize:'vertical',width:'100%',height:'200px'}}
-              onChange={e => handleInputChange('worldDescription', e.target.value)}
-              value={formData && formData.worldDescription}>
-            </textarea>
-            <div style={{...infoItemStyles,width:'100%',marginTop:'auto',flexWrap:'wrap'}}>
-              <span id="formError" style={{...errorStyles,margin:'10px'}}></span>
-              <button style={{...formButtonStyles,backgroundColor:'red'}} type="button" onClick={()=>{setEditing(!editing)}}>Cancelar</button>
-              <button style={{...formButtonStyles,backgroundColor:'#007bff'}} type="submit">Confirmar</button>
+                </input>
+              </div> 
+              <div style={infoItemStyles}>Visibilidad: 
+                <select
+                  value={formData && formData.worldVisibility}
+                  onChange={e => handleInputChange('worldVisibility', e.target.value)}
+                  style={{marginLeft:'auto', width:'70%'}}>
+                    <option value={'public'}>Público</option>
+                    <option value={'private'}>Privado</option>
+                </select>
+              </div>            
             </div>
-                
-          </div>
+          }
+          {world && 
+            <div style={{...columnStyles, width:'69%', borderLeft: '2px solid #282c34', paddingLeft:'20px'}}>
+              <textarea
+                style={{...infoItemStyles,resize:'vertical',width:'100%',height:'200px'}}
+                onChange={e => handleInputChange('worldDescription', e.target.value)}
+                value={formData && formData.worldDescription}>
+              </textarea>
+              <div style={{...infoItemStyles,width:'100%',marginTop:'auto',flexWrap:'wrap'}}>
+                <span id="formError" style={{...errorStyles,margin:'10px'}}></span>
+                <button style={{...formButtonStyles,backgroundColor:'red'}} type="button" onClick={()=>{setEditing(!editing)}}>Cancelar</button>
+                <button style={{...formButtonStyles,backgroundColor:'#007bff'}} type="submit">Confirmar</button>
+              </div>
+                  
+            </div>
+          }          
         </form>
       )}
       {world && (
