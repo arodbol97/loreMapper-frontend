@@ -74,7 +74,7 @@ const MapBox = ({ mapId , handleComponentChange, user , worldId, mapData}) => {
     const img = new Image();
     let imageWidth = null;
     let imageHeight = null;
-    img.src = 'https://loremapper-backend-b042c39916b5.herokuapp.com/images/' + mapData.mapImage;
+    img.src = 'https://loremapper-backend-b042c39916b5.herokuapp.com/images/' + mapData.mapImage.split('/').pop();
 
     img.onload = () => {
       const newWidth = 100;
@@ -90,7 +90,7 @@ const MapBox = ({ mapId , handleComponentChange, user , worldId, mapData}) => {
           sources: {
             backgroundImg: {
               type: 'image',
-              url: 'https://loremapper-backend-b042c39916b5.herokuapp.com/images/' + mapData.mapImage,
+              url: 'https://loremapper-backend-b042c39916b5.herokuapp.com/images/' + mapData.mapImage.split('/').pop(),
               coordinates: [
                 [-imageWidth / 2, imageHeight / 2],
                 [imageWidth / 2, imageHeight / 2],
