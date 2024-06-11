@@ -154,7 +154,7 @@ const MapCard = ({map, user, worldId, getMaps, maps}) => {
 
     const formDataForSubmission = new FormData();
     formDataForSubmission.append('mapId', formData.mapId);   
-    formDataForSubmission.append('mapId', formData.mapName);    
+    formDataForSubmission.append('mapName', formData.mapName);    
     formDataForSubmission.append('mapImage', file);
     
     try {

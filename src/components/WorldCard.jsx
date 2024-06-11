@@ -208,7 +208,7 @@ const WorldCard = ({world, user, getWorlds}) => {
 
     const formDataForSubmission = new FormData();
     formDataForSubmission.append('worldId', formData.worldId);    
-    formDataForSubmission.append('worldId', formData.worldName);    
+    formDataForSubmission.append('worldName', formData.worldName);    
     formDataForSubmission.append('worldThumbnail', file);
     
     try {
