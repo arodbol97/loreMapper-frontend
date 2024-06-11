@@ -72,9 +72,9 @@ const MapBox = ({ mapId , handleComponentChange, user , worldId, mapData}) => {
     }
 
     const img = new Image();
-    let imageWidth = 100;
-    let imageHeight = 100;
-    img.src = 'https://loremapper-s3.s3.eu-north-1.amazonaws.com/tamriel_29519_tamriel.jpeg';
+    let imageWidth = null;
+    let imageHeight = null;
+    img.src = 'https://loremapper-backend-b042c39916b5.herokuapp.com/images/' + mapData.mapImage;
 
     img.onload = () => {
       const newWidth = 100;
@@ -90,7 +90,7 @@ const MapBox = ({ mapId , handleComponentChange, user , worldId, mapData}) => {
           sources: {
             backgroundImg: {
               type: 'image',
-              url: 'https://loremapper-s3.s3.eu-north-1.amazonaws.com/tamriel_29519_tamriel.jpeg',
+              url: 'https://loremapper-backend-b042c39916b5.herokuapp.com/images/' + mapData.mapImage,
               coordinates: [
                 [-imageWidth / 2, imageHeight / 2],
                 [imageWidth / 2, imageHeight / 2],
