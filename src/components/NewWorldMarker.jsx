@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import List from './List';
 
 const NewWorldMarker = ({ worldId , type, getMarkers, markers, factions, kins, setNewMarker}) => {
     const divStyles = {
@@ -221,9 +220,9 @@ const NewWorldMarker = ({ worldId , type, getMarkers, markers, factions, kins, s
             {renderTitle()}
             <form onSubmit={handleSubmit} style={formStyles} id='markerForm'>
                 <label style={labelStyles}>Nombre:</label>
-                <input style={inputStyles} type="text" name="name" value={name} maxLength={50} onChange={handleChange} />
+                <input style={inputStyles} id="marker_name_form" type="text" name="name" value={name} maxLength={50} onChange={handleChange} />
                 <label style={labelStyles}>Descripción:</label>
-                <textarea style={{ ...inputStyles, resize: 'vertical' }} name="description" value={description} onChange={handleChange}></textarea>                
+                <textarea style={{ ...inputStyles, resize: 'vertical' }} id="marker_description_form"name="description" value={description} onChange={handleChange}></textarea>                
                 <label style={labelStyles}>Facción:</label>
                 <select name="faction" style={inputStyles} onChange={handleChange}>
                     <option value=""></option>
@@ -242,7 +241,7 @@ const NewWorldMarker = ({ worldId , type, getMarkers, markers, factions, kins, s
                 </select>
                 {renderAdditionalFields()}                
                 <button style={{ ...buttonStyles, backgroundColor:'red', color:'white',fontWeight:'bold',marginTop:'0'}} type="button" onClick={cancelForm}>Cancelar</button>
-                <button style={{ ...buttonStyles, backgroundColor:'#007bff', color:'white',fontWeight:'bold',marginTop:'0'}} type="submit">Confirmar</button>                        
+                <button style={{ ...buttonStyles, backgroundColor:'#007bff', color:'white',fontWeight:'bold',marginTop:'0'}} id="submit_marker_button"type="submit">Confirmar</button>                        
                 <span id="formError" style={errorStyles}></span>
             </form>            
         </div>
