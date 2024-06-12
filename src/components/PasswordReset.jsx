@@ -188,6 +188,7 @@ const PasswordReset = ({ handleComponentChange , encryptedEmail = null }) => {
               value={formData.password}
               onChange={handleChange}
               style={{width: '100%'}}
+              maxLength={100}
               required
             />
           </div>
@@ -200,6 +201,7 @@ const PasswordReset = ({ handleComponentChange , encryptedEmail = null }) => {
               value={formData.repeatPassword}
               onChange={handleChange}
               style={{width: '100%'}}
+              maxLength={100}
               required
             />
           </div>

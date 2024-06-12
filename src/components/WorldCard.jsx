@@ -362,6 +362,7 @@ const WorldCard = ({world, user, getWorlds}) => {
                     value={formData.worldName}
                     onChange={e => handleInputChange('worldName', e.target.value)}
                     style={{width: '100%'}}
+                    maxLength={100}
                   />
                 </div>
 
@@ -383,6 +384,7 @@ const WorldCard = ({world, user, getWorlds}) => {
                     value={formData.worldDescription}
                     onChange={e => handleInputChange('worldDescription', e.target.value)}
                     style={{width: '100%', height: '60px', resize: 'vertical'}}
+                    maxLength={1500}
                   />
                 </div>            
 

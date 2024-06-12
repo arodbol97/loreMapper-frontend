@@ -103,12 +103,12 @@ const NewLoreBit = ({ worldId, setShowNewForm, getLoreBits }) => {
             <h3 style={titleStyles}>Nuevo lore</h3>
             <form onSubmit={handleSubmit} style={formStyles} id='loreForm'>
                 <label style={labelStyles}>Título:</label>
-                <input style={inputStyles} type="text" name="name" value={name} maxLength={50} onChange={handleChange} />
+                <input style={inputStyles} id='loreBitTitleForm' type="text" name="name" value={name} maxLength={100} onChange={handleChange} />
                 <label style={labelStyles}>Descripción:</label>
-                <textarea style={{ ...inputStyles, resize: 'vertical' }} name="description" onChange={handleChange} />
+                <textarea style={{ ...inputStyles, resize: 'vertical' }} id='loreBitDescriptionForm' name="description" maxLength={1000} onChange={handleChange} />
                 
                 <button style={{ ...buttonStyles, backgroundColor: 'red', color: 'white', fontWeight: 'bold' }} type="button" onClick={cancelForm}>Cancelar</button>
-                <button style={{ ...buttonStyles, backgroundColor: '#007bff', color: 'white', fontWeight: 'bold' }} type="submit">Confirmar</button>
+                <button style={{ ...buttonStyles, backgroundColor: '#007bff', color: 'white', fontWeight: 'bold' }} id='submitLoreBitButton' type="submit">Confirmar</button>
                 <span id="formError" style={errorStyles}></span>
             </form>
         </div>

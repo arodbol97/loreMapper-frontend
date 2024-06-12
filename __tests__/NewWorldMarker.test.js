@@ -30,9 +30,9 @@ describe('NewWorldMarker', () => {
         const setNewPersonMock = jest.fn();
         axios.post.mockResolvedValue(POST_RESPONSE);
         const { container} = render(<NewWorldMarker worldId={WORLD_ID} getMarkers={getMarkersMock} setNewMarker={setNewPersonMock} markers={MARKERS} kins={KINS} factions={FACTIONS} type={'person'}/>);
-        const nameInput = container.querySelector('#marker_name_form');
-        const descriptionInput = container.querySelector('#marker_description_form');
-        const submitButton = container.querySelector('#submit_marker_button');
+        const nameInput = container.querySelector('#markerNameForm');
+        const descriptionInput = container.querySelector('#markerDescriptionForm');
+        const submitButton = container.querySelector('#submitMarkerButton');
         const URL = 'https://loremapper-backend-b042c39916b5.herokuapp.com/marker/create'
         const EXPECTED_REQUEST_DATA = {
             markerWorld: WORLD_ID,            

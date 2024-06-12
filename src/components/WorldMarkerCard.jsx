@@ -247,7 +247,7 @@ const WorldMarkerCard = ({marker, user, worldId, markers, factions, kins, getMar
                 <div style={{...statStyles, paddingLeft: '10px',width: 'calc(100% - 20px)'}}>{marker.markerName.length > 0 ? marker.markerName:'Sin nombre'}</div>
 
                 <div style={{...statStyles, backgroundColor: '#282c34'}}>Descripción:</div>
-                <div style={{...statStyles, paddingLeft: '10px',width: 'calc(100% - 20px)'}}>{marker.markerDescription}</div>                
+                <div style={{...statStyles, paddingLeft: '10px',width: 'calc(100% - 20px)',wordBreak: 'break-all'}}>{marker.markerDescription}</div>                
 
                 {marker.markerFaction && factions && <div style={{...statStyles, backgroundColor: '#282c34'}}>Facción:</div>}
                 {marker.markerFaction && factions && <div style={{...statStyles, paddingLeft: '10px',width: 'calc(100% - 20px)'}}>{factions.find(faction => faction.factionId === marker.markerFaction).factionName}</div>}
@@ -262,7 +262,7 @@ const WorldMarkerCard = ({marker, user, worldId, markers, factions, kins, getMar
                 {marker.markerType === 'object' && <div style={{...statStyles, paddingLeft: '10px',width: 'calc(100% - 20px)'}}>{marker.objectValue}</div>}
 
                 {marker.objectEnchantment && <div style={{...statStyles, backgroundColor: '#282c34'}}>Encantamiento:</div>}
-                {marker.objectEnchantment && <div style={{...statStyles, paddingLeft: '10px',width: 'calc(100% - 20px)'}}>{marker.objectEnchantment}</div>}
+                {marker.objectEnchantment && <div style={{...statStyles, paddingLeft: '10px',width: 'calc(100% - 20px)',wordBreak: 'break-all'}}>{marker.objectEnchantment}</div>}
 
                 {marker.objectType && <div style={{...statStyles, backgroundColor: '#282c34'}}>Tipo:</div>}
                 {marker.objectType && <div style={{...statStyles, paddingLeft: '10px',width: 'calc(100% - 20px)'}}>{marker.objectType}</div>}
@@ -286,6 +286,7 @@ const WorldMarkerCard = ({marker, user, worldId, markers, factions, kins, getMar
                     value={formData.markerName}
                     onChange={e => handleInputChange('markerName', e.target.value)}
                     style={{width: '100%'}}
+                    maxLength={100}
                   />
                 </div>
 
@@ -295,6 +296,7 @@ const WorldMarkerCard = ({marker, user, worldId, markers, factions, kins, getMar
                     value={formData.markerDescription}
                     onChange={e => handleInputChange('markerDescription', e.target.value)}
                     style={{width: '100%', height: '60px', resize: 'vertical'}}
+                    maxLength={1000}
                   />
                 </div>                
 
@@ -365,6 +367,7 @@ const WorldMarkerCard = ({marker, user, worldId, markers, factions, kins, getMar
                       value={formData.objectEnchantment}
                       onChange={e => handleInputChange('objectEnchantment', e.target.value)}
                       style={{width: '100%', height: '60px', resize: 'vertical'}}
+                      maxLength={1000}
                     />
                   </div>
                 }

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NewWorldMarker should match snapshot 1`] = `
+exports[`NewFaction should match snapshot 1`] = `
 <DocumentFragment>
   <div
     style="display: flex; flex-wrap: wrap; width: 100%; align-items: flex-start;"
@@ -8,10 +8,10 @@ exports[`NewWorldMarker should match snapshot 1`] = `
     <h3
       style="border: 5px solid #282c34; width: 100%; height: 30px; color: white; margin: 10px 0px 20px 0px; text-align: center; background-color: rgb(0, 123, 255);"
     >
-      Nueva persona
+      Nueva facción
     </h3>
     <form
-      id="markerForm"
+      id="factionForm"
       style="width: 100%;"
     >
       <label
@@ -20,7 +20,7 @@ exports[`NewWorldMarker should match snapshot 1`] = `
         Nombre:
       </label>
       <input
-        id="markerNameForm"
+        id="factionNameForm"
         maxlength="50"
         name="name"
         style="width: calc(100% - 0px); margin-bottom: 10px; box-sizing: border-box; background-color: lightgrey;"
@@ -33,60 +33,31 @@ exports[`NewWorldMarker should match snapshot 1`] = `
         Descripción:
       </label>
       <textarea
-        id="markerDescriptionForm"
+        id="factionDescriptionForm"
         name="description"
         style="width: calc(100% - 0px); margin-bottom: 10px; box-sizing: border-box; background-color: lightgrey; resize: vertical;"
       />
       <label
         style="color: white; width: 20%; text-align: right; padding-right: 10px; margin-bottom: 5px;"
       >
-        Facción:
+        Color:
       </label>
-      <select
-        name="faction"
+      <input
+        id="factionColorForm"
+        name="color"
         style="width: calc(100% - 0px); margin-bottom: 10px; box-sizing: border-box; background-color: lightgrey;"
-      >
-        <option
-          value=""
-        />
-      </select>
-      <label
-        style="color: white; width: 20%; text-align: right; padding-right: 10px; margin-bottom: 5px;"
-      >
-        Cultura:
-      </label>
-      <select
-        name="kin"
-        style="width: calc(100% - 0px); margin-bottom: 10px; box-sizing: border-box; background-color: lightgrey;"
-      >
-        <option
-          value=""
-        />
-      </select>
-      <div>
-        <label
-          style="color: white; width: 20%; text-align: right; padding-right: 10px; margin-bottom: 5px;"
-        >
-          Hogar:
-        </label>
-        <select
-          name="home"
-          style="width: calc(100% - 0px); margin-bottom: 10px; box-sizing: border-box; background-color: lightgrey;"
-        >
-          <option
-            value="none"
-          />
-        </select>
-      </div>
+        type="color"
+        value="#000000"
+      />
       <button
-        style="width: calc(50% - 0px); margin-top: 0px; box-sizing: border-box; color: white; cursor: pointer; background-color: red; font-weight: bold;"
+        style="width: calc(50% - 0px); margin-top: 15px; box-sizing: border-box; color: white; cursor: pointer; background-color: red; font-weight: bold;"
         type="button"
       >
         Cancelar
       </button>
       <button
-        id="submitMarkerButton"
-        style="width: calc(50% - 0px); margin-top: 0px; box-sizing: border-box; color: white; cursor: pointer; background-color: rgb(0, 123, 255); font-weight: bold;"
+        id="submitFactionButton"
+        style="width: calc(50% - 0px); margin-top: 15px; box-sizing: border-box; color: white; cursor: pointer; background-color: rgb(0, 123, 255); font-weight: bold;"
         type="submit"
       >
         Confirmar

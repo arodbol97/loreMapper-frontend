@@ -433,7 +433,8 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
                   type='text'
                   value={formData && formData.userName}
                   onChange={e => handleInputChange('userName', e.target.value)}
-                  style={{width:'100%'}}>
+                  style={{width:'100%'}}
+                  maxLength={20}>
                 </input>
               </div>
               
@@ -446,11 +447,11 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
           }
           {newEmail &&
             <form style={columnStyles} onSubmit={handleEmailSubmit}>
-              <h2 style={titleStyles}>Cambiar nombre</h2>
+              <h2 style={titleStyles}>Cambiar email</h2>
               <div style={{...infoItemStyles,backgroundColor:'#282c34'}}>Nuevo email: </div>
               <div style={infoItemStyles}>
                 <input 
-                  type='text'
+                  type='email'
                   value={formData && formData.userEmail}
                   onChange={e => handleInputChange('userEmail', e.target.value)}
                   style={{width:'100%'}}>
@@ -517,7 +518,8 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
                   type='password'
                   value={formData && formData.adminPassword}
                   onChange={e => handleInputChange('password', e.target.value)}
-                  style={{width:'100%'}}>
+                  style={{width:'100%'}}
+                  maxLength={100}>
                 </input>
               </div>
               <div style={{...infoItemStyles,backgroundColor:'#282c34'}}>Repite la contraseña</div>
@@ -526,7 +528,8 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
                   type='password'
                   value={formData && formData.adminPassword}
                   onChange={e => handleInputChange('repeatPassword', e.target.value)}
-                  style={{width:'100%'}}>
+                  style={{width:'100%'}}
+                  maxLength={100}>
                 </input>
               </div>
               

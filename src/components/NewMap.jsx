@@ -1,42 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import World from './World';
 import { BsImageFill } from "react-icons/bs";
 
 const NewMap = ({worldId , user , getMaps , worldName, setNewMap, maps}) => {
-  const formStyles = {
-    backgroundColor: '#282c34',
-    color: 'white',
-    display: 'flex',
-    flexWrap: 'wrap',
-    maxWidth: '400px',
-    margin: '10px',
-    marginTop: '100px',
-    padding: '20px',
-    borderRadius: '20px',
-  };
-
-  const inputStyles = {
-    width: '60%',
-    marginLeft: '10px',
-  };
-
-  const labelStyles = {
-    display: 'flex',
-    width: '100%',
-    justifyContent: 'right',
-    margin: '2px',
-  };
-
-  const buttonStyles = {
-    width: '100%',
-    height: '30px',
-    textAlign: 'center',
-    margin: '2px',
-    marginTop: '10px',
-    fontSize: '15px',
-  };
-
   const errorStyles = {
     width: '100%',
     textAlign: 'center',
@@ -60,10 +26,6 @@ const NewMap = ({worldId , user , getMaps , worldName, setNewMap, maps}) => {
     color: 'white',
     display: 'flex',
     flexWrap: 'wrap'
-  };
-
-  const infoItemStyles = {
-    margin: '5px 0'
   };
 
   const infoStyles = {
@@ -204,6 +166,8 @@ const NewMap = ({worldId , user , getMaps , worldName, setNewMap, maps}) => {
             value={formData.mapName}
             onChange={e => handleChange('mapName', e.target.value)}
             style={{width: '100%'}}
+            id="mapNameForm"
+            maxLength={100}
           />
         </div>
 
@@ -213,7 +177,8 @@ const NewMap = ({worldId , user , getMaps , worldName, setNewMap, maps}) => {
             name="parent" 
             style={{width: '100%'}} 
             value={formData.mapParent || ''}
-            onChange={e => handleChange('mapParent', e.target.value)}>
+            onChange={e => handleChange('mapParent', e.target.value)}
+            id="mapParentForm">
               <option value=""></option>
               {maps && 
                 maps                  
@@ -226,7 +191,7 @@ const NewMap = ({worldId , user , getMaps , worldName, setNewMap, maps}) => {
         
         <div style={{...statStyles,height:'100%',alignItems:'end'}}>          
           <button style={{...formButtonStyles,backgroundColor:'red'}} type="button" onClick={()=>{setNewMap(false)}}>Cancelar</button>
-          <button style={{...formButtonStyles,backgroundColor:'#007bff'}} type="submit">Confirmar</button>
+          <button style={{...formButtonStyles,backgroundColor:'#007bff'}} id="submitMapButton" type="submit">Confirmar</button>
         </div>        
       </div>
     </form>    

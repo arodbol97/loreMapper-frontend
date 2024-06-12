@@ -259,6 +259,7 @@ const MapCard = ({map, user, worldId, getMaps, maps}) => {
                     value={formData.mapName}
                     onChange={e => handleInputChange('mapName', e.target.value)}
                     style={{width: '100%'}}
+                    maxLength={100}
                   />
                 </div>
 

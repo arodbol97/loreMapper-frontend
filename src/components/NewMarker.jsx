@@ -222,7 +222,7 @@ const NewMarker = ({ worldId , mapId, handleListChange, type, map, displayMarker
                     <label style={labelStyles}>Valor:</label>
                     <input style={inputStyles} type="number" name="value" onChange={handleChange} />
                     <label style={labelStyles}>Encantamiento:</label>
-                    <textarea style={{ ...inputStyles, resize: 'vertical' }} name="enchantment" onChange={handleChange} />
+                    <textarea style={{ ...inputStyles, resize: 'vertical' }} name="enchantment" onChange={handleChange} maxLength={1000}/>
                     <label style={labelStyles}>Tipo:</label>
                     <select style={inputStyles} name="type" onChange={handleChange}>
                         <option value="Arma">Arma</option>
@@ -365,9 +365,9 @@ const NewMarker = ({ worldId , mapId, handleListChange, type, map, displayMarker
             {newMarker ? (
                 <form onSubmit={handleSubmit} style={formStyles} id='markerForm'>
                     <label style={labelStyles}>Nombre:</label>
-                    <input style={inputStyles} type="text" name="name" value={name} maxLength={50} onChange={handleChange} />
+                    <input style={inputStyles} type="text" name="name" value={name} maxLength={100} onChange={handleChange} />
                     <label style={labelStyles}>Descripción:</label>
-                    <textarea style={{ ...inputStyles, resize: 'vertical' }} name="description" value={description} onChange={handleChange}></textarea>
+                    <textarea style={{ ...inputStyles, resize: 'vertical' }} name="description" value={description} maxLength={1000} onChange={handleChange}></textarea>
                     <label style={labelStyles}>Coordenadas:</label>
                     <input
                         type="text"

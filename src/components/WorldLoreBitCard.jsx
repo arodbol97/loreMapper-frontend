@@ -205,7 +205,7 @@ const colorStyles = {
                 <div style={{...statStyles, paddingLeft: '10px',width:'calc(100% - 10px)'}}>{loreBit.loreBitTitle.length > 0 ? loreBit.loreBitTitle:'Sin título'}</div>
 
                 <div style={{...statStyles, backgroundColor: '#282c34'}}>Descripción:</div>
-                <div style={{...statStyles, paddingLeft: '10px',width:'calc(100% - 10px)'}}>{loreBit.loreBitDescription}</div>                
+                <div style={{...statStyles, paddingLeft: '10px',width:'calc(100% - 10px)',wordBreak: 'break-all'}}>{loreBit.loreBitDescription}</div>                
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
@@ -216,6 +216,7 @@ const colorStyles = {
                     value={formData.loreBitTitle}
                     onChange={e => handleInputChange('loreBitTitle', e.target.value)}
                     style={{width: '100%'}}
+                    maxLength={100}
                   />
                 </div>
 
@@ -225,6 +226,7 @@ const colorStyles = {
                     value={formData.loreBitDescription}
                     onChange={e => handleInputChange('loreBitDescription', e.target.value)}
                     style={{width: '100%', height: '60px', resize: 'vertical'}}
+                    maxLength={1000}
                   />
                 </div>                
 

@@ -156,6 +156,7 @@ const Login = ({ setUser , handleComponentChange , registered = false }) => {
             value={formData.username}
             onChange={handleChange}
             style={{width: '100%'}}
+            maxLength={20}
             required
           />
         </div>
@@ -168,6 +169,7 @@ const Login = ({ setUser , handleComponentChange , registered = false }) => {
             name="password"
             onChange={handleChange}
             style={{width: '100%'}}
+            maxLength={100}
             required
           />
         </div>

@@ -107,7 +107,7 @@ const NewRegion = ({ worldId, displayMarkers, setShowNewForm, getRegions }) => {
             <h3 style={titleStyles}>Nueva región</h3>
             <form onSubmit={handleSubmit} style={formStyles} id='regionForm'>
                 <label style={labelStyles}>Nombre:</label>
-                <input style={inputStyles} type="text" name="name" value={name} maxLength={50} onChange={handleChange} />
+                <input style={inputStyles} type="text" name="name" value={name} maxLength={100} onChange={handleChange} />
                 <label style={labelStyles}>Posición:</label>
                 <input style={inputStyles} type="text" name="position" value={position} onChange={handleChange} />
                 <label style={labelStyles}>Mapa:</label>

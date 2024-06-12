@@ -158,6 +158,7 @@ const Register = ({handleComponentChange , setUser}) => {
             value={formData.username}
             onChange={handleChange}
             style={{width: '100%'}}
+            maxLength={20}
             required
           />
         </div>
@@ -182,6 +183,7 @@ const Register = ({handleComponentChange , setUser}) => {
             name="password"
             onChange={handleChange}
             style={{width: '100%'}}
+            maxLength={100}
             required
           />
         </div>
@@ -194,6 +196,7 @@ const Register = ({handleComponentChange , setUser}) => {
             name="repeatPassword"
             onChange={handleChange}
             style={{width: '100%'}}
+            maxLength={100}
             required
           />
         </div>

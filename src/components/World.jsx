@@ -401,7 +401,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
             {world.worldStatus === 'blocked' && <div style={{...infoItemStyles,backgroundColor:'#282c34'}}>Estado: </div>}
             {world.worldStatus === 'blocked' && <div style={{...infoItemStyles,padding:'0 10px',width:'calc(100% - 66px)',border:'1px solid red'}}>Bloqueado</div>}
           </div>
-          <div style={{...columnStyles, width:'69%', borderLeft: '2px solid #282c34', paddingLeft:'20px'}}>
+          <div style={{...columnStyles, width:'69%', borderLeft: '2px solid #282c34', paddingLeft:'20px',wordBreak: 'break-all'}}>
             <div>{world.worldDescription}</div>
           </div>
         </div>
@@ -437,7 +437,8 @@ const World = ({ worldId, handleComponentChange, user }) => {
                   type='text'
                   value={formData && formData.worldName}
                   onChange={e => handleInputChange('worldName', e.target.value)}
-                  style={{marginLeft:'auto', width:'68%'}}>
+                  style={{marginLeft:'auto', width:'68%'}}
+                  maxLength={100}>
 
                 </input>
               </div> 
@@ -457,7 +458,8 @@ const World = ({ worldId, handleComponentChange, user }) => {
               <textarea
                 style={{...infoItemStyles,resize:'vertical',width:'100%',height:'200px'}}
                 onChange={e => handleInputChange('worldDescription', e.target.value)}
-                value={formData && formData.worldDescription}>
+                value={formData && formData.worldDescription}
+                maxLength={1500}>
               </textarea>
               <div style={{...infoItemStyles,width:'100%',marginTop:'auto',flexWrap:'wrap'}}>
                 <span id="formError" style={{...errorStyles,margin:'10px'}}></span>

@@ -191,6 +191,7 @@ const NewWorld = ({user, getWorlds, setNewWorld}) => {
             value={formData.worldName}
             onChange={e => handleChange('worldName', e.target.value)}
             style={{width: '100%'}}
+            maxLength={100}
           />
         </div>
 
@@ -212,6 +213,7 @@ const NewWorld = ({user, getWorlds, setNewWorld}) => {
               value={formData.worldDescription}
               onChange={e => handleChange('worldDescription', e.target.value)}
               style={{width: '100%', height: '60px', resize: 'vertical'}}
+              maxLength={1500}
             />
         </div> 
 

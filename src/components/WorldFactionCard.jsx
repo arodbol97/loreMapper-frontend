@@ -209,7 +209,7 @@ const WorldFactionCard = ({faction, user, worldId, markers, getFactions}) => {
                 <div style={{...statStyles, paddingLeft: '10px',width:'calc(100% - 10px)'}}>{faction.factionName}</div>
 
                 <div style={{...statStyles, backgroundColor: '#282c34'}}>Descripción:</div>
-                <div style={{...statStyles, paddingLeft: '10px',width:'calc(100% - 10px)'}}>{faction.factionDescription}</div>
+                <div style={{...statStyles, paddingLeft: '10px',width:'calc(100% - 10px)',wordBreak: 'break-all'}}>{faction.factionDescription}</div>
 
                 <div style={{...statStyles, backgroundColor: '#282c34'}}>Color:</div>
                 <div style={{...statStyles, padding: '0 10px 0 10px', backgroundColor: faction.factionColor, width: '1%', height: '20px', marginLeft: '10px', border: '1px solid white'}}>
@@ -225,6 +225,7 @@ const WorldFactionCard = ({faction, user, worldId, markers, getFactions}) => {
                     value={formData.factionName}
                     onChange={e => handleInputChange('factionName', e.target.value)}
                     style={{width: '100%'}}
+                    maxLength={100}
                   />
                 </div>
 
@@ -234,6 +235,7 @@ const WorldFactionCard = ({faction, user, worldId, markers, getFactions}) => {
                     value={formData.factionDescription}
                     onChange={e => handleInputChange('factionDescription', e.target.value)}
                     style={{width: '100%', height: '60px', resize: 'vertical'}}
+                    maxLength={1000}
                   />
                 </div>
 

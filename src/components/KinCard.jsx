@@ -323,7 +323,7 @@ const KinCard = ({kin, user, displayMarkers, hideMarker, worldId, mapId, map, sh
                 <div style={{...statStyles, paddingLeft: '10px',width:'calc(100% - 10px)'}}>{kin.kinName.length > 0 ? kin.kinName:'Sin nombre'}</div>
 
                 <div style={{...statStyles, backgroundColor: '#282c34'}}>Descripción:</div>
-                <div style={{...statStyles, paddingLeft: '10px',width:'calc(100% - 10px)'}}>{kin.kinDescription}</div>
+                <div style={{...statStyles, paddingLeft: '10px',width:'calc(100% - 10px)',wordBreak: 'break-all'}}>{kin.kinDescription}</div>
 
                 <div style={{...statStyles, backgroundColor: '#282c34'}}>Color:</div>
                 <div style={{...statStyles, padding: '0 10px 0 10px', backgroundColor: kin.kinColor, width: '1%', height: '20px', marginLeft: '10px', border: '1px solid white'}}>
@@ -339,6 +339,7 @@ const KinCard = ({kin, user, displayMarkers, hideMarker, worldId, mapId, map, sh
                     value={formData.kinName}
                     onChange={e => handleInputChange('kinName', e.target.value)}
                     style={{width: '100%'}}
+                    maxLength={100}
                   />
                 </div>
 
@@ -348,6 +349,7 @@ const KinCard = ({kin, user, displayMarkers, hideMarker, worldId, mapId, map, sh
                     value={formData.kinDescription}
                     onChange={e => handleInputChange('kinDescription', e.target.value)}
                     style={{width: '100%', height: '60px', resize: 'vertical'}}
+                    maxLength={1000}
                   />
                 </div>
 

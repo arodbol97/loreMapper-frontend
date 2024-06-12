@@ -109,13 +109,13 @@ const NewKin = ({ worldId, displayMarkers, setShowNewForm , getKins }) => {
             <h3 style={titleStyles}>Nueva cultura</h3>
             <form onSubmit={handleSubmit} style={formStyles} id='kinForm'>
                 <label style={labelStyles}>Nombre:</label>
-                <input style={inputStyles} type="text" name="name" value={name} maxLength={50} onChange={handleChange} />
+                <input style={inputStyles} id='kinNameForm' type="text" name="name" value={name} maxLength={100} onChange={handleChange} />
                 <label style={labelStyles}>Descripción:</label>
-                <textarea style={{ ...inputStyles, resize: 'vertical' }} name="description" value={description} onChange={handleChange}></textarea>
+                <textarea style={{ ...inputStyles, resize: 'vertical' }} id='kinDescriptionForm' name="description" value={description} maxLength={1000} onChange={handleChange}></textarea>
                 <label style={labelStyles}>Color:</label>
-                <input style={inputStyles} type="color" name="color" value={color} onChange={handleChange} />
+                <input style={inputStyles} id='kinColorForm' type="color" name="color" value={color} onChange={handleChange} />
                 <button style={{ ...buttonStyles, backgroundColor: 'red', color: 'white', fontWeight: 'bold' }} type="button" onClick={cancelForm}>Cancelar</button>
-                <button style={{ ...buttonStyles, backgroundColor: '#007bff', color: 'white', fontWeight: 'bold' }} type="submit">Confirmar</button>
+                <button style={{ ...buttonStyles, backgroundColor: '#007bff', color: 'white', fontWeight: 'bold' }} id='submitKinButton' type="submit">Confirmar</button>
                 <span id="formError" style={errorStyles}></span>
             </form>
         </div>

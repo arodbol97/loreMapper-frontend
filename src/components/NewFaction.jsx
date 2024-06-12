@@ -109,13 +109,13 @@ const NewFaction = ({ worldId, displayMarkers, setShowNewForm, getFactions  }) =
             <h3 style={titleStyles}>Nueva facción</h3>
             <form onSubmit={handleSubmit} style={formStyles} id='factionForm'>
                 <label style={labelStyles}>Nombre:</label>
-                <input style={inputStyles} type="text" name="name" value={name} maxLength={50} onChange={handleChange} />
+                <input style={inputStyles} id='factionNameForm' type="text" name="name" value={name} maxLength={100} onChange={handleChange} />
                 <label style={labelStyles}>Descripción:</label>
-                <textarea style={{ ...inputStyles, resize: 'vertical' }} name="description" value={description} onChange={handleChange}></textarea>
+                <textarea style={{ ...inputStyles, resize: 'vertical' }} id='factionDescriptionForm' name="description" value={description} maxLength={1000} onChange={handleChange}></textarea>
                 <label style={labelStyles}>Color:</label>
-                <input style={inputStyles} type="color" name="color" value={color} onChange={handleChange} />
+                <input style={inputStyles} id='factionColorForm' type="color" name="color" value={color} onChange={handleChange} />
                 <button style={{ ...buttonStyles, backgroundColor: 'red', color: 'white', fontWeight: 'bold' }} type="button" onClick={cancelForm}>Cancelar</button>
-                <button style={{ ...buttonStyles, backgroundColor: '#007bff', color: 'white', fontWeight: 'bold' }} type="submit">Confirmar</button>
+                <button style={{ ...buttonStyles, backgroundColor: '#007bff', color: 'white', fontWeight: 'bold' }} id='submitFactionButton' type="submit">Confirmar</button>
                 <span id="formError" style={errorStyles}></span>
             </form>
         </div>
