@@ -299,6 +299,7 @@ const NewMarker = ({ worldId , mapId, handleListChange, type, map, displayMarker
             markerId: selectedMarker,
             markerPosition: coords
         };
+        console.log(formData);
         if(!coords){
             document.getElementById('formError').innerHTML = 'Haz click en el mapa para seleccionar las coordenadas';
             return;
