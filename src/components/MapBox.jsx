@@ -63,33 +63,19 @@ const MapBox = ({ mapId , handleComponentChange, user , worldId, mapData}) => {
       hiddenMarkers = [];
     }
   };  
-
-  const convertImageToBase64 = async (imageUrl) => {
-    const response = await fetch(imageUrl);
-    const blob = await response.blob();
-  
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onloadend = () => resolve(reader.result);
-      reader.onerror = reject;
-      reader.readAsDataURL(blob);
-    });
-  };
-
+ 
   const initMap = async () => {
     const mapData = await fetchMapData();
 
     if (!mapData) {
       return;
-    }
-
-    const base64Image = await convertImageToBase64(mapData.mapImage);
+    }    
 
     const img = new Image();
     let imageWidth = null;
     let imageHeight = null;
     
-    img.src = base64Image;
+    img.src = mapData.image64;
 
     img.onload = () => {
       const newWidth = 100;
@@ -106,7 +92,7 @@ const MapBox = ({ mapId , handleComponentChange, user , worldId, mapData}) => {
             backgroundImg: {
               type: 'image',
     
-              url: base64Image,
+              url: mapData.image64,
               coordinates: [
                 [-imageWidth / 2, imageHeight / 2],
                 [imageWidth / 2, imageHeight / 2],
