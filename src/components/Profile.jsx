@@ -216,7 +216,7 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
 
   const getWorlds = async () => {
     try {          
-      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/world/fromUserId/${user.userId}`);
+      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/world/fromUserId/${profileUser.userId}`);
       setWorlds(response.data.worlds);          
     } catch (error) {
       console.error('Request error: ', error);
