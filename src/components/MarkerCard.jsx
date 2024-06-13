@@ -178,7 +178,7 @@ const MarkerCard = ({marker, user, map, rerenderer, displayMarkers, hideMarker ,
         document.getElementById('formError').innerHTML = requestData.error;
       } else {
         if (formData.markerPosition !== marker.markerPosition) {
-          const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/markerinMap/update', formData);
+          const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/markerInMap/update', formData);
           const requestData = response.data.requestData;
           if (!requestData.updated) {
             document.getElementById('formError').innerHTML = requestData.error;
