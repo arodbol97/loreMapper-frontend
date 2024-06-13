@@ -90,7 +90,7 @@ const NewWorldMarker = ({ worldId , type, getMarkers, markers, factions, kins, s
     const [faction, setFaction] = useState('');
     const [value, setValue] = useState('');
     const [enchantment, setEnchantment] = useState('');
-    const [objectType, setObjectType] = useState('weapon');
+    const [objectType, setObjectType] = useState('Misceláneo');
     const [population, setPopulation] = useState('');    
 
     const cancelForm = () => {

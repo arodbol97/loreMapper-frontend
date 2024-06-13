@@ -21,7 +21,7 @@ exports[`NewFaction should match snapshot 1`] = `
       </label>
       <input
         id="factionNameForm"
-        maxlength="50"
+        maxlength="100"
         name="name"
         style="width: calc(100% - 0px); margin-bottom: 10px; box-sizing: border-box; background-color: lightgrey;"
         type="text"
@@ -34,6 +34,7 @@ exports[`NewFaction should match snapshot 1`] = `
       </label>
       <textarea
         id="factionDescriptionForm"
+        maxlength="1000"
         name="description"
         style="width: calc(100% - 0px); margin-bottom: 10px; box-sizing: border-box; background-color: lightgrey; resize: vertical;"
       />
