@@ -64,6 +64,18 @@ const MapBox = ({ mapId , handleComponentChange, user , worldId, mapData}) => {
     }
   };  
 
+  const convertImageToBase64 = async (imageUrl) => {
+    const response = await fetch(imageUrl);
+    const blob = await response.blob();
+  
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+  };
+
   const initMap = async () => {
     const mapData = await fetchMapData();
 
@@ -71,10 +83,12 @@ const MapBox = ({ mapId , handleComponentChange, user , worldId, mapData}) => {
       return;
     }
 
+    const base64Image = await convertImageToBase64(mapData.mapImage);
+
     const img = new Image();
     let imageWidth = null;
     let imageHeight = null;
-    //img.src = 'https://loremapper-backend-b042c39916b5.herokuapp.com/images/' + mapData.mapImage.split('/').pop();
+    
     img.src = mapData.mapImage;
 
     img.onload = () => {
@@ -91,8 +105,8 @@ const MapBox = ({ mapId , handleComponentChange, user , worldId, mapData}) => {
           sources: {
             backgroundImg: {
               type: 'image',
-              //url: 'https://loremapper-backend-b042c39916b5.herokuapp.com/images/' + mapData.mapImage.split('/').pop(),
-              url: mapData.mapImage,
+    
+              url: base64Image,
               coordinates: [
                 [-imageWidth / 2, imageHeight / 2],
                 [imageWidth / 2, imageHeight / 2],
