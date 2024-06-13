@@ -299,7 +299,6 @@ const NewMarker = ({ worldId , mapId, handleListChange, type, map, displayMarker
             markerId: selectedMarker,
             markerPosition: coords
         };
-        console.log(formData);
         if(!coords){
             document.getElementById('formError').innerHTML = 'Haz click en el mapa para seleccionar las coordenadas';
             return;
@@ -309,7 +308,7 @@ const NewMarker = ({ worldId , mapId, handleListChange, type, map, displayMarker
             return;
         }
         try {
-          const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/markerInMap/', formData);          
+          const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/markerInMap', formData);          
           const markerData = response.data.created;
           if (!markerData) {
             document.getElementById('formError').innerHTML = 'El marcador no se pudo colocar';
