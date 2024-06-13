@@ -89,7 +89,7 @@ const MapBox = ({ mapId , handleComponentChange, user , worldId, mapData}) => {
     let imageWidth = null;
     let imageHeight = null;
     
-    img.src = mapData.mapImage;
+    img.src = base64Image;
 
     img.onload = () => {
       const newWidth = 100;
