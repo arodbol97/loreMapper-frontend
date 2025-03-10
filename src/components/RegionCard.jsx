@@ -137,7 +137,7 @@ const RegionCard = ({region, user, worldId, mapId, maps }) => {
   const checkUser = () => {    
     const getWorld = async () => {
       try {
-        const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/world/fromWorldId/${worldId}`);
+        const response = await axios.get(`https://lore-mapper-backend.vercel.app//world/fromWorldId/${worldId}`);
         if (worldOwner === -1) {
           setWorldOwner(response.data.world.worldOwner);
         }
@@ -161,7 +161,7 @@ const RegionCard = ({region, user, worldId, mapId, maps }) => {
     event.preventDefault();
         
     try {
-      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/region/update', formData);          
+      const response = await axios.post('https://lore-mapper-backend.vercel.app//region/update', formData);          
       const requestData = response.data.requestData;          
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;

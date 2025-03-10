@@ -138,7 +138,7 @@ const WorldCard = ({world, user, getWorlds}) => {
 
   const getMarkers = async () => {
     try {
-      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/marker/fromWorldId/${world.worldId}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app//marker/fromWorldId/${world.worldId}`);
       setMarkers(response.data.markers);
     } catch (error) {
       console.error('Request error: ', error);
@@ -147,7 +147,7 @@ const WorldCard = ({world, user, getWorlds}) => {
 
   const getFactions = async () => {
     try {
-      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/faction/fromWorldId/${world.worldId}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app//faction/fromWorldId/${world.worldId}`);
       setFactions(response.data.factions);
     } catch (error) {
       console.error('Request error: ', error);
@@ -156,7 +156,7 @@ const WorldCard = ({world, user, getWorlds}) => {
 
   const getKins = async () => {
     try {
-      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/kin/fromWorldId/${world.worldId}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app//kin/fromWorldId/${world.worldId}`);
       setKins(response.data.kins);
     } catch (error) {
       console.error('Request error: ', error);
@@ -165,7 +165,7 @@ const WorldCard = ({world, user, getWorlds}) => {
 
   const getOwner = async () => {
     try {
-      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/user/fromId/${world.worldOwner}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app//user/fromId/${world.worldOwner}`);
       setOwner(response.data.user);
     } catch (error) {
       console.error('Request error: ', error);
@@ -184,7 +184,7 @@ const WorldCard = ({world, user, getWorlds}) => {
     event.preventDefault();
         
     try {
-      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/world/update', formData);
+      const response = await axios.post('https://lore-mapper-backend.vercel.app//world/update', formData);
       const requestData = response.data.worldData;
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;
@@ -212,7 +212,7 @@ const WorldCard = ({world, user, getWorlds}) => {
     formDataForSubmission.append('worldThumbnail', file);
     
     try {
-      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/world/changeImage', formDataForSubmission);
+      const response = await axios.post('https://lore-mapper-backend.vercel.app//world/changeImage', formDataForSubmission);
       const requestData = response.data.worldData;
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;
@@ -230,7 +230,7 @@ const WorldCard = ({world, user, getWorlds}) => {
   const deleteWorld = async () => {    
     if (window.confirm('¿Seguro que desea eliminar este mundo permanentemente?')) {
       try {
-        const response = await axios.post(`https://loremapper-backend-b042c39916b5.herokuapp.com/world/delete`, {worldId:world.worldId});
+        const response = await axios.post(`https://lore-mapper-backend.vercel.app//world/delete`, {worldId:world.worldId});
         if(response.data.deleted){
           getWorlds();
         }
@@ -243,7 +243,7 @@ const WorldCard = ({world, user, getWorlds}) => {
   const blockWorld = async (worldStatus = 'blocked') => {    
     if (window.confirm(`¿Seguro que desea ${worldStatus === 'active' ? 'des':''}bloquear este mundo?`)) {
       try {
-        const response = await axios.post(`https://loremapper-backend-b042c39916b5.herokuapp.com/world/block`, {worldId:world.worldId , worldStatus:worldStatus});
+        const response = await axios.post(`https://lore-mapper-backend.vercel.app//world/block`, {worldId:world.worldId , worldStatus:worldStatus});
         if(response.data.blocked){
           getWorlds();
         }

@@ -109,7 +109,7 @@ const PasswordReset = ({ handleComponentChange , encryptedEmail = null }) => {
 
   const decrypt = async () => {
     try {
-      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/user/passwordresetcheck', {encryptedEmail: encryptedEmail});
+      const response = await axios.post('https://lore-mapper-backend.vercel.app//user/passwordresetcheck', {encryptedEmail: encryptedEmail});
       if(response.data.email){
         setVerified(true);
         setFormData({
@@ -133,7 +133,7 @@ const PasswordReset = ({ handleComponentChange , encryptedEmail = null }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/user/passwordreset', formData);
+      const response = await axios.post('https://lore-mapper-backend.vercel.app//user/passwordreset', formData);
       if(response.data.success){
         document.getElementById("formError").innerHTML = '';                        
       } else {
@@ -150,7 +150,7 @@ const PasswordReset = ({ handleComponentChange , encryptedEmail = null }) => {
     try {
       if (formData.password === formData.repeatPassword) {
         document.getElementById("formError").innerHTML = '';                        
-        const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/user/passwordresetcomplete', formData);
+        const response = await axios.post('https://lore-mapper-backend.vercel.app//user/passwordresetcomplete', formData);
 
         if(response.data.success){
           document.getElementById("formError").innerHTML = '';    

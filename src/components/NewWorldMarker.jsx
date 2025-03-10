@@ -196,7 +196,7 @@ const NewWorldMarker = ({ worldId , type, getMarkers, markers, factions, kins, s
             placePopulation: population,            
         };
         try {
-          const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/marker/create', formData);          
+          const response = await axios.post('https://lore-mapper-backend.vercel.app//marker/create', formData);          
           const markerData = response.data.markerData;          
           if (!markerData.created) {
             document.getElementById('formError').innerHTML = markerData.error;

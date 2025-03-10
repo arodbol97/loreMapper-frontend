@@ -135,7 +135,7 @@ const WorldMarkerCard = ({marker, user, worldId, markers, factions, kins, getMar
   const deleteMarker = async () => {
     if (window.confirm('¿Seguro que desea eliminar este marcador permanentemente?')) {
       try {
-          const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/marker/delete', {markerId: marker.markerId});
+          const response = await axios.post('https://lore-mapper-backend.vercel.app//marker/delete', {markerId: marker.markerId});
           const requestData = response.data.requestData;
           if (!requestData.deleted) {
             console.log("no se borro");
@@ -153,7 +153,7 @@ const WorldMarkerCard = ({marker, user, worldId, markers, factions, kins, getMar
     event.preventDefault();
         
     try {
-      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/marker/update', formData);
+      const response = await axios.post('https://lore-mapper-backend.vercel.app//marker/update', formData);
       const requestData = response.data.requestData;
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;
@@ -171,7 +171,7 @@ const WorldMarkerCard = ({marker, user, worldId, markers, factions, kins, getMar
   const checkUser = ()=> {
     const getWorld = async ()=>{
       try {
-        const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/world/fromWorldId/${worldId}`);
+        const response = await axios.get(`https://lore-mapper-backend.vercel.app//world/fromWorldId/${worldId}`);
         if(worldOwner === -1){
           setWorldOwner(response.data.world.worldOwner);
         }      
@@ -196,7 +196,7 @@ const WorldMarkerCard = ({marker, user, worldId, markers, factions, kins, getMar
 
   const getMarkerInMaps = async () => {
     try {
-      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/markerInMap/fromMarkerId/${marker.markerId}`);      
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app//markerInMap/fromMarkerId/${marker.markerId}`);      
       const markerMapIds = response.data.markers.map(marker => marker.mapId);      
       const filteredMaps = maps.filter(map => markerMapIds.includes(map.mapId));
       setMarkerInMaps(filteredMaps);      

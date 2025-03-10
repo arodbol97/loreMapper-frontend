@@ -123,7 +123,7 @@ const colorStyles = {
   const checkUser = ()=> {
     const getWorld = async ()=>{
       try {
-        const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/world/fromWorldId/${worldId}`);
+        const response = await axios.get(`https://lore-mapper-backend.vercel.app//world/fromWorldId/${worldId}`);
         if(worldOwner === -1){
           setWorldOwner(response.data.world.worldOwner);
         }      
@@ -142,7 +142,7 @@ const colorStyles = {
   const deleteLoreBit = async () => {
     if (window.confirm('¿Seguro que desea eliminar este lore permanentemente?')) {
       try {
-        const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/loreBit/delete/${loreBit.loreBitId}`);
+        const response = await axios.get(`https://lore-mapper-backend.vercel.app//loreBit/delete/${loreBit.loreBitId}`);
         if(response.data.deleted){
           getLoreBits();
         }      
@@ -156,7 +156,7 @@ const colorStyles = {
     event.preventDefault();
         
     try {
-      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/loreBit/update', formData);          
+      const response = await axios.post('https://lore-mapper-backend.vercel.app//loreBit/update', formData);          
       const requestData = response.data.requestData;          
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;

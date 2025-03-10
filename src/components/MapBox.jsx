@@ -27,7 +27,7 @@ const MapBox = ({ mapId , handleComponentChange, user , worldId, mapData}) => {
 
   const fetchMapData = async () => {
     try {
-      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/map/fromId/${mapId}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app//map/fromId/${mapId}`);
       return response.data.map;
     } catch (error) {
       console.error('Error fetching background image:', error);
@@ -37,7 +37,7 @@ const MapBox = ({ mapId , handleComponentChange, user , worldId, mapData}) => {
 
   const displayMarkers = async () => {
     try {
-      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/marker/fromMapId/${mapId}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app//marker/fromMapId/${mapId}`);
       setMarkers(
         response.data.markers
           .filter(marker => !hiddenMarkers.includes(marker.markerPosition))

@@ -85,7 +85,7 @@ const NewKin = ({ worldId, displayMarkers, setShowNewForm , getKins }) => {
         };
         console.log(formData);
         try {
-            const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/kin/create', formData);
+            const response = await axios.post('https://lore-mapper-backend.vercel.app//kin/create', formData);
             const kinData = response.data.kinData;
             if (!kinData.created) {
                 document.getElementById('formError').innerHTML = kinData.error;

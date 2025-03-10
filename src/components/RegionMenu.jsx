@@ -85,7 +85,7 @@ const RegionMenu = ({ worldId, user, handleComponentChange, setRegionKin, mapId 
   const checkUser = () => {
     const getWorld = async () => {
       try {
-        const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/world/fromWorldId/${worldId}`);
+        const response = await axios.get(`https://lore-mapper-backend.vercel.app//world/fromWorldId/${worldId}`);
         if (worldOwner === -1) {
           setWorldOwner(response.data.world.worldOwner);
         }
@@ -107,7 +107,7 @@ const RegionMenu = ({ worldId, user, handleComponentChange, setRegionKin, mapId 
 
   const getRegions = async () => {
     try {
-      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/region/fromMapId/${mapId}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app//region/fromMapId/${mapId}`);
       const updatedRegions = response.data.regions.map(region => ({
         ...region,
         deleted: false
@@ -120,7 +120,7 @@ const RegionMenu = ({ worldId, user, handleComponentChange, setRegionKin, mapId 
 
   const getMaps = async () => {
     try {
-      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/map/fromWorld/${worldId}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app//map/fromWorld/${worldId}`);
       const updatedMaps = response.data.maps;
       setMaps(updatedMaps);
     } catch (error) {

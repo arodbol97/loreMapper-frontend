@@ -221,7 +221,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
 
   const getWorld = async () => {
     try {
-      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/world/fromWorldId/${worldId}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app//world/fromWorldId/${worldId}`);
       setWorld(response.data.world);
       setFormData(response.data.world);
       getOwner(response.data.world.worldOwner);      
@@ -232,7 +232,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
 
   const getMarkers = async () => {
     try {
-      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/marker/fromWorldId/${worldId}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app//marker/fromWorldId/${worldId}`);
       setMarkers(response.data.markers);
     } catch (error) {
       console.error('Request error: ', error);
@@ -241,7 +241,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
 
   const getFactions = async () => {
     try {
-      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/faction/fromWorldId/${worldId}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app//faction/fromWorldId/${worldId}`);
       setFactions(response.data.factions);
     } catch (error) {
       console.error('Request error: ', error);
@@ -250,7 +250,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
 
   const getKins = async () => {
     try {
-      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/kin/fromWorldId/${worldId}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app//kin/fromWorldId/${worldId}`);
       setKins(response.data.kins);
     } catch (error) {
       console.error('Request error: ', error);
@@ -259,7 +259,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
 
   const getLoreBits = async () => {
     try {
-      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/loreBit/fromWorldId/${worldId}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app//loreBit/fromWorldId/${worldId}`);
       setLoreBits(response.data.loreBits);
     } catch (error) {
       console.error('Request error: ', error);
@@ -268,7 +268,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
 
   const getMaps = async () => {
     try {
-      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/map/fromWorld/${worldId}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app//map/fromWorld/${worldId}`);
       setMaps(response.data.maps);
     } catch (error) {
       console.error('Request error: ', error);
@@ -277,7 +277,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
 
   const getOwner = async (worldOwner) => {
     try {
-      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/user/fromId/${worldOwner}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app//user/fromId/${worldOwner}`);
       setOwner(response.data.user);
     } catch (error) {
       console.error('Request error: ', error);
@@ -324,7 +324,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
     event.preventDefault();
         
     try {
-      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/world/update', formData);
+      const response = await axios.post('https://lore-mapper-backend.vercel.app//world/update', formData);
       const requestData = response.data.worldData;
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;
@@ -351,7 +351,7 @@ const World = ({ worldId, handleComponentChange, user }) => {
     formDataForSubmission.append('worldThumbnail', file);
     
     try {
-      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/world/changeImage', formDataForSubmission);
+      const response = await axios.post('https://lore-mapper-backend.vercel.app//world/changeImage', formDataForSubmission);
       const requestData = response.data.worldData;
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;

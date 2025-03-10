@@ -157,7 +157,7 @@ const KinCard = ({kin, user, displayMarkers, hideMarker, worldId, mapId, map, sh
   const checkUser = ()=> {
     const getWorld = async ()=>{
       try {
-        const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/world/fromWorldId/${worldId}`);
+        const response = await axios.get(`https://lore-mapper-backend.vercel.app//world/fromWorldId/${worldId}`);
         if(worldOwner === -1){
           setWorldOwner(response.data.world.worldOwner);
         }      
@@ -242,7 +242,7 @@ const KinCard = ({kin, user, displayMarkers, hideMarker, worldId, mapId, map, sh
       markerKin: kin.kinId
     }  
     try {
-      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/marker/changekin', formData);
+      const response = await axios.post('https://lore-mapper-backend.vercel.app//marker/changekin', formData);
       if (response.data.requestData.updated) {     
         displayMarkers();   
       }
@@ -260,7 +260,7 @@ const KinCard = ({kin, user, displayMarkers, hideMarker, worldId, mapId, map, sh
     event.preventDefault();
         
     try {
-      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/kin/update', formData);          
+      const response = await axios.post('https://lore-mapper-backend.vercel.app//kin/update', formData);          
       const requestData = response.data.requestData;          
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;
@@ -278,7 +278,7 @@ const KinCard = ({kin, user, displayMarkers, hideMarker, worldId, mapId, map, sh
 
   const getMarkers = async () => {
     try {
-        const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/marker/fromMapId/${mapId}`);
+        const response = await axios.get(`https://lore-mapper-backend.vercel.app//marker/fromMapId/${mapId}`);
         setMarkers(response.data.markers);
     } catch (error) {
         console.error('Request error: ', error);

@@ -117,7 +117,7 @@ const MapCard = ({map, user, worldId, getMaps, maps}) => {
 
   const checkUser = async () => {    
     try {
-      const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/world/fromWorldId/${worldId}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app//world/fromWorldId/${worldId}`);
       if(!worldOwner){
         setWorldOwner(response.data.world.worldOwner);
       }      
@@ -130,7 +130,7 @@ const MapCard = ({map, user, worldId, getMaps, maps}) => {
     event.preventDefault();
         
     try {
-      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/map/update', formData);
+      const response = await axios.post('https://lore-mapper-backend.vercel.app//map/update', formData);
       const requestData = response.data.mapData;
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;
@@ -158,7 +158,7 @@ const MapCard = ({map, user, worldId, getMaps, maps}) => {
     formDataForSubmission.append('mapImage', file);
     
     try {
-      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/map/changeImage', formDataForSubmission);
+      const response = await axios.post('https://lore-mapper-backend.vercel.app//map/changeImage', formDataForSubmission);
       const requestData = response.data.mapData;
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;
@@ -176,7 +176,7 @@ const MapCard = ({map, user, worldId, getMaps, maps}) => {
   const deleteMap = async () => {    
     if (window.confirm('¿Seguro que desea eliminar este mapa permanentemente?')) {
       try {
-        const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/map/delete/${map.mapId}`);
+        const response = await axios.get(`https://lore-mapper-backend.vercel.app//map/delete/${map.mapId}`);
         if(response.data.deleted){
           getMaps();
         } else {

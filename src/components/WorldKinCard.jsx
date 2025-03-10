@@ -126,7 +126,7 @@ const WorldKinCard = ({kin, user, worldId, markers, getKins}) => {
   const checkUser = ()=> {
     const getWorld = async ()=>{
       try {
-        const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/world/fromWorldId/${worldId}`);
+        const response = await axios.get(`https://lore-mapper-backend.vercel.app//world/fromWorldId/${worldId}`);
         if(worldOwner === -1){
           setWorldOwner(response.data.world.worldOwner);
         }      
@@ -145,7 +145,7 @@ const WorldKinCard = ({kin, user, worldId, markers, getKins}) => {
   const deleteKin = async () => {
     if (window.confirm('¿Seguro que desea eliminar esta cultura permanentemente?')) {
       try {
-        const response = await axios.get(`https://loremapper-backend-b042c39916b5.herokuapp.com/kin/delete/${kin.kinId}`);
+        const response = await axios.get(`https://lore-mapper-backend.vercel.app//kin/delete/${kin.kinId}`);
         if(response.data.deleted){
           getKins();
         }      
@@ -159,7 +159,7 @@ const WorldKinCard = ({kin, user, worldId, markers, getKins}) => {
     event.preventDefault();
         
     try {
-      const response = await axios.post('https://loremapper-backend-b042c39916b5.herokuapp.com/kin/update', formData);          
+      const response = await axios.post('https://lore-mapper-backend.vercel.app//kin/update', formData);          
       const requestData = response.data.requestData;          
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;
