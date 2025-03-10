@@ -31,7 +31,7 @@ const Breadcrumbs = ({ path , handleComponentChange}) => {
 
   return (
     <div style={divStyles}>
-      <span onClick={()=>{window.location.href = 'https://main.d1egoez5esnf01.amplifyapp.com/'}} style={path.length > 0 ? breadcrumbStyles:{...breadcrumbStyles,borderRight:'none'}}>Inicio</span>
+      <span onClick={() => window.location.reload()} style={path.length > 0 ? breadcrumbStyles:{...breadcrumbStyles,borderRight:'none'}}>Inicio</span>
       {path.map((node, index) => (        
         <span key={index} onClick={()=>navigate(node.component, node.label)} style={index === path.length - 1 ? {...breadcrumbStyles,borderRight:'none'} : breadcrumbStyles}>{node.label}</span>
       ))}
