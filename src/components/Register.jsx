@@ -129,7 +129,7 @@ const Register = ({handleComponentChange , setUser}) => {
       return;
     }else{
       try {      
-        const response = await axios.post(`https://lore-mapper-backend.vercel.app//user/register`,formData);
+        const response = await axios.post(`https://lore-mapper-backend.vercel.app/user/register`,formData);
         console.log("afteraxios");
         const registerData = response.data.registerData;
         console.log(registerData.registered);

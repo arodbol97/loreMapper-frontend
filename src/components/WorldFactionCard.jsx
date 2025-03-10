@@ -126,7 +126,7 @@ const WorldFactionCard = ({faction, user, worldId, markers, getFactions}) => {
   const checkUser = ()=> {
     const getWorld = async ()=>{
       try {
-        const response = await axios.get(`https://lore-mapper-backend.vercel.app//world/fromWorldId/${worldId}`);
+        const response = await axios.get(`https://lore-mapper-backend.vercel.app/world/fromWorldId/${worldId}`);
         if(worldOwner === -1){
           setWorldOwner(response.data.world.worldOwner);
         }      
@@ -145,7 +145,7 @@ const WorldFactionCard = ({faction, user, worldId, markers, getFactions}) => {
   const deleteFaction = async () => {
     if (window.confirm('¿Seguro que desea eliminar esta facción permanentemente?')) {
       try {
-        const response = await axios.get(`https://lore-mapper-backend.vercel.app//faction/delete/${faction.factionId}`);
+        const response = await axios.get(`https://lore-mapper-backend.vercel.app/faction/delete/${faction.factionId}`);
         if(response.data.deleted){
           getFactions();
         }      
@@ -159,7 +159,7 @@ const WorldFactionCard = ({faction, user, worldId, markers, getFactions}) => {
     event.preventDefault();
         
     try {
-      const response = await axios.post('https://lore-mapper-backend.vercel.app//faction/update', formData);          
+      const response = await axios.post('https://lore-mapper-backend.vercel.app/faction/update', formData);          
       const requestData = response.data.requestData;          
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;

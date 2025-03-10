@@ -109,7 +109,7 @@ const KinMenu = ({worldId , mapId, map, user, handleComponentChange,  rerenderer
   const checkUser = () => {
     const getWorld = async ()=>{
       try {
-        const response = await axios.get(`https://lore-mapper-backend.vercel.app//world/fromWorldId/${worldId}`);
+        const response = await axios.get(`https://lore-mapper-backend.vercel.app/world/fromWorldId/${worldId}`);
         if(worldOwner === -1){
           setWorldOwner(response.data.world.worldOwner);
         }      
@@ -131,7 +131,7 @@ const KinMenu = ({worldId , mapId, map, user, handleComponentChange,  rerenderer
 
   const getKins = async () => {
     try {
-      const response = await axios.get(`https://lore-mapper-backend.vercel.app//kin/fromWorldId/${worldId}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app/kin/fromWorldId/${worldId}`);
 
       const updatedKins = response.data.kins.map(kin => ({
         ...kin,
@@ -152,7 +152,7 @@ const KinMenu = ({worldId , mapId, map, user, handleComponentChange,  rerenderer
 
   const getMarkers = async () => {
     try {
-        const response = await axios.get(`https://lore-mapper-backend.vercel.app//marker/fromMapId/${mapId}`);
+        const response = await axios.get(`https://lore-mapper-backend.vercel.app/marker/fromMapId/${mapId}`);
         setMarkers(response.data.markers);
     } catch (error) {
         console.error('Request error: ', error);

@@ -114,7 +114,7 @@ const EmailVerify = ({ handleComponentChange , encryptedEmail = null }) => {
 
   const decrypt = async () => {
     try {
-      const response = await axios.post('https://lore-mapper-backend.vercel.app//user/verify', {encryptedEmail: encryptedEmail});
+      const response = await axios.post('https://lore-mapper-backend.vercel.app/user/verify', {encryptedEmail: encryptedEmail});
       if(response.data.email){
         setVerified(true);        
         document.getElementById("formError").innerHTML = '';

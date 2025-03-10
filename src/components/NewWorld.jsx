@@ -145,7 +145,7 @@ const NewWorld = ({user, getWorlds, setNewWorld}) => {
     formDataForSubmission.append('worldOwner', user && user.userId);
 
     try {
-      const response = await axios.post('https://lore-mapper-backend.vercel.app//world/create', formDataForSubmission);      
+      const response = await axios.post('https://lore-mapper-backend.vercel.app/world/create', formDataForSubmission);      
       const worldData = response.data.worldData;      
       if (!worldData.created) {
         document.getElementById('formError').innerHTML = worldData.error;        

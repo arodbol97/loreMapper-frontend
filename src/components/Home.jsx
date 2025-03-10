@@ -180,7 +180,7 @@ const Home = ({handleComponentChange, user}) => {
 
   const getWorlds = async () => {
     try {          
-      const response = await axios.get(`https://lore-mapper-backend.vercel.app//world/`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app/world/`);
       setWorlds(response.data.worlds);          
     } catch (error) {
       console.error('Request error: ', error);

@@ -79,7 +79,7 @@ const NewLoreBit = ({ worldId, setShowNewForm, getLoreBits }) => {
             loreBitDescription: description,            
         };        
         try {
-            const response = await axios.post('https://lore-mapper-backend.vercel.app//loreBit/create', formData);
+            const response = await axios.post('https://lore-mapper-backend.vercel.app/loreBit/create', formData);
             const loreBitData = response.data.loreBitData;
             if (!loreBitData.created) {
                 document.getElementById('formError').innerHTML = loreBitData.error;

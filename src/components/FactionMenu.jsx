@@ -109,7 +109,7 @@ const FactionMenu = ({worldId , mapId, map, user, handleComponentChange,  rerend
   const checkUser = () => {
     const getWorld = async ()=>{
       try {
-        const response = await axios.get(`https://lore-mapper-backend.vercel.app//world/fromWorldId/${worldId}`);
+        const response = await axios.get(`https://lore-mapper-backend.vercel.app/world/fromWorldId/${worldId}`);
         if(worldOwner === -1){
           setWorldOwner(response.data.world.worldOwner);
         }      
@@ -131,7 +131,7 @@ const FactionMenu = ({worldId , mapId, map, user, handleComponentChange,  rerend
 
   const getFactions = async () => {
     try {
-      const response = await axios.get(`https://lore-mapper-backend.vercel.app//faction/fromWorldId/${worldId}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app/faction/fromWorldId/${worldId}`);
 
       const updatedFactions = response.data.factions.map(faction => ({
         ...faction,
@@ -152,7 +152,7 @@ const FactionMenu = ({worldId , mapId, map, user, handleComponentChange,  rerend
 
   const getMarkers = async () => {
     try {
-        const response = await axios.get(`https://lore-mapper-backend.vercel.app//marker/fromMapId/${mapId}`);
+        const response = await axios.get(`https://lore-mapper-backend.vercel.app/marker/fromMapId/${mapId}`);
         setMarkers(response.data.markers);
     } catch (error) {
         console.error('Request error: ', error);

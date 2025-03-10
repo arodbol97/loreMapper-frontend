@@ -216,7 +216,7 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
 
   const getWorlds = async () => {
     try {          
-      const response = await axios.get(`https://lore-mapper-backend.vercel.app//world/fromUserId/${profileUser.userId}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app/world/fromUserId/${profileUser.userId}`);
       setWorlds(response.data.worlds);          
     } catch (error) {
       console.error('Request error: ', error);
@@ -225,7 +225,7 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
 
   const getUsers = async () => {
     try {          
-      const response = await axios.get(`https://lore-mapper-backend.vercel.app//user/`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app/user/`);
       setUsers(response.data.users);          
     } catch (error) {
       console.error('Request error: ', error);
@@ -236,7 +236,7 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
     event.preventDefault();
         
     try {
-      const response = await axios.post('https://lore-mapper-backend.vercel.app//user/changeName', formData);
+      const response = await axios.post('https://lore-mapper-backend.vercel.app/user/changeName', formData);
       const requestData = response.data.userData;
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;
@@ -256,12 +256,12 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
     event.preventDefault();
         
     try {
-      const response = await axios.post('https://lore-mapper-backend.vercel.app//user/changeEmail', formData);
+      const response = await axios.post('https://lore-mapper-backend.vercel.app/user/changeEmail', formData);
       const requestData = response.data.userData;
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;
       } else {
-        await axios.post('https://lore-mapper-backend.vercel.app//user/verifyStart', {usernameOrEmail: formData.userEmail});
+        await axios.post('https://lore-mapper-backend.vercel.app/user/verifyStart', {usernameOrEmail: formData.userEmail});
         Cookies.set('userData', null);
         window.location.href = "https://main.d1egoez5esnf01.amplifyapp.com/";  
       }
@@ -277,7 +277,7 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
     try {
       if (formData.password === formData.repeatPassword) {
         document.getElementById("formError").innerHTML = '';                        
-        const response = await axios.post('https://lore-mapper-backend.vercel.app//user/passwordresetcomplete', formData);
+        const response = await axios.post('https://lore-mapper-backend.vercel.app/user/passwordresetcomplete', formData);
 
         if(response.data.success){
           setNewPassword(false);
@@ -296,7 +296,7 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
     event.preventDefault();
         
     try {
-      const response = await axios.post('https://lore-mapper-backend.vercel.app//user/applyForAdmin', formData);
+      const response = await axios.post('https://lore-mapper-backend.vercel.app/user/applyForAdmin', formData);
       const requestData = response.data.requestData;
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;
@@ -314,7 +314,7 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
     event.preventDefault();
         
     try {
-      const response = await axios.post('https://lore-mapper-backend.vercel.app//user/changeRol', formData);
+      const response = await axios.post('https://lore-mapper-backend.vercel.app/user/changeRol', formData);
       const requestData = response.data.requestData;
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;
@@ -330,7 +330,7 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
 
   const changeUserRol = async (userId, userRol) => {
     try {
-      const response = await axios.post('https://lore-mapper-backend.vercel.app//user/changeRol', {userRol: userRol, userId: userId});
+      const response = await axios.post('https://lore-mapper-backend.vercel.app/user/changeRol', {userRol: userRol, userId: userId});
       const requestData = response.data.requestData;
       if (!requestData.updated) {
         document.getElementById('formError').innerHTML = requestData.error;
@@ -345,7 +345,7 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
 
   const deleteUser = async () => {
     try {
-      const response = await axios.post('https://lore-mapper-backend.vercel.app//user/delete/', formData);
+      const response = await axios.post('https://lore-mapper-backend.vercel.app/user/delete/', formData);
       const requestData = response.data.requestData;
       if (!requestData.deleted) {
         document.getElementById('buttonError').innerHTML = requestData.error;
@@ -361,7 +361,7 @@ const Profile = ({handleComponentChange, user, logged = false, profileUser}) => 
 
   const deleteWorlds = async () => {
     try {
-      const response = await axios.post('https://lore-mapper-backend.vercel.app//world/deleteUserWorlds/', formData);
+      const response = await axios.post('https://lore-mapper-backend.vercel.app/world/deleteUserWorlds/', formData);
       const requestData = response.data.requestData;
       if (!requestData.deleted) {
         document.getElementById('buttonError').innerHTML = requestData.error;

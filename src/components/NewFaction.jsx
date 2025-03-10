@@ -85,7 +85,7 @@ const NewFaction = ({ worldId, displayMarkers, setShowNewForm, getFactions  }) =
         };
         console.log(formData);
         try {
-            const response = await axios.post('https://lore-mapper-backend.vercel.app//faction/create', formData);
+            const response = await axios.post('https://lore-mapper-backend.vercel.app/faction/create', formData);
             const factionData = response.data.factionData;
             if (!factionData.created) {
                 document.getElementById('formError').innerHTML = factionData.error;

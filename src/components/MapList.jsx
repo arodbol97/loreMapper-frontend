@@ -114,7 +114,7 @@ const MapList = ({worldId , handleComponentChange , user , worldName}) => {
 
   const getMaps = async () => {
     try {
-      const response = await axios.get(`https://lore-mapper-backend.vercel.app//map/fromWorld/${worldId}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app/map/fromWorld/${worldId}`);
       setMaps(response.data.maps);
     } catch (error) {
       console.error('Request error: ', error);
@@ -123,7 +123,7 @@ const MapList = ({worldId , handleComponentChange , user , worldName}) => {
 
   const getWorld = async ()=>{
     try {
-      const response = await axios.get(`https://lore-mapper-backend.vercel.app//world/fromWorldId/${worldId}`);
+      const response = await axios.get(`https://lore-mapper-backend.vercel.app/world/fromWorldId/${worldId}`);
       setWorldOwner(response.data.world.worldOwner);
     } catch (error) {
       console.error('Request error: ', error);

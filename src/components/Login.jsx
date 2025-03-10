@@ -125,7 +125,7 @@ const Login = ({ setUser , handleComponentChange , registered = false }) => {
     document.getElementById("formError").innerHTML = "";
 
     try {      
-      const response = await axios.post(`https://lore-mapper-backend.vercel.app//user/login`, formData);
+      const response = await axios.post(`https://lore-mapper-backend.vercel.app/user/login`, formData);
       const loginData = response.data.loginData;
       const userData = response.data.userData;     
       

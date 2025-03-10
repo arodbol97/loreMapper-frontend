@@ -83,7 +83,7 @@ const NewRegion = ({ worldId, displayMarkers, setShowNewForm, getRegions }) => {
         };
         console.log(formData);
         try {
-            const response = await axios.post('https://lore-mapper-backend.vercel.app//region/create', formData);
+            const response = await axios.post('https://lore-mapper-backend.vercel.app/region/create', formData);
             const regionData = response.data.regionData;
             if (!regionData.created) {
                 document.getElementById('formError').innerHTML = regionData.error;
