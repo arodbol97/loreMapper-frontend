@@ -14,5 +14,4 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
-  environment:
-    REACT_APP_HOME_PAGE: "https://main.d1egoez5esnf01.amplifyapp.com/"
+      
